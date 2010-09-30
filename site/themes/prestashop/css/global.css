@@ -16,7 +16,7 @@ body {
 	background-color: white;
 	font-size: 11px;
 	font-family: Verdana, Arial, Helvetica, Sans-Serif;
-	color: #5d717e;
+	color:  #5A4B35;
 	text-align: center
 }
 
@@ -155,7 +155,7 @@ div#more_info_sheets ul li {
 a {
 	color: #5d717e;
 	text-decoration: underline;
-	outline: none
+	outline: none 
 }
 a:hover { text-decoration: none }
 .input:focus { outline: 0 }
@@ -171,7 +171,7 @@ h2 {
 	margin: 0.5em 0;
 	text-transform: uppercase;
 	font-weight: bold;
-	color: #374853;
+	color: #5A4B35;
 	background: transparent url('../img/title_bg.gif') no-repeat top left;
 	height: 21px
 }
@@ -576,12 +576,12 @@ img.icon { margin-right: 0.5em; vertical-align: middle }
 /* breadcrumb.tpl */
 .breadcrumb {
 	font-size: 1em;
-	color: #888
+	color: #5A4B35
 }
 .breadcrumb .navigation-pipe { padding: 0 0.6em }
 .breadcrumb a {
 	text-decoration: none;
-	color: #5d717e
+	color: #5A4B35
 }
 .breadcrumb a:hover { text-decoration: underline }
 
@@ -885,8 +885,8 @@ div.exclusive li { margin-top: 0 }
 div.exclusive, div.exclusive a { color: white }
 div.exclusive .block_content {
 	background: #bdc2c9 url('../img/block_exclusive_bg.jpg') repeat-x bottom left;
-	border-left: 1px solid #5a4b35;
-	border-right: 1px solid #5a4b35
+/*	border-left: 1px solid #5a4b35;
+	border-right: 1px solid #5a4b35*/
 }
 
 /* block myaccount */
@@ -1066,16 +1066,17 @@ div.tags_block p {
 }
 div.tags_block p a {
 	margin: 0 0.1em;
-	line-height: 1.5em
+	line-height: 1.5em;
+	color: #5A4B35;
 }
 div.tags_block p a:hover {
-	color: white!important;
+/*	color: white!important;
 	background-color: #5D717E;
-	text-decoration: none
+	text-decoration: none */
 }
 a.tag_level3 { font-size: 1.8em; font-weight: bold }
 a.tag_level2 { font-size: 1.4em }
-a.tag_level1 { font-size: 1em; color: #888!important }
+a.tag_level1 { font-size: 1em; color: #5A4B35!important }
 
 /* Block manufacturer */
 .blockmanufacturer ul, .blocksupplier ul { padding: 4px 0 6px }
