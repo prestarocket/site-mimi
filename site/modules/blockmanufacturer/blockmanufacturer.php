@@ -25,17 +25,38 @@ class BlockManufacturer extends Module
    
     function hookLeftColumn($params)
     {
-		global $smarty, $link;
-		
-		$smarty->assign(array(
-			'manufacturers' => Manufacturer::getManufacturers(),
-			'link' => $link,
-			'text_list' => Configuration::get('MANUFACTURER_DISPLAY_TEXT'),
-			'text_list_nb' => Configuration::get('MANUFACTURER_DISPLAY_TEXT_NB'),
-			'form_list' => Configuration::get('MANUFACTURER_DISPLAY_FORM'),
-		));
-		return $this->display(__FILE__, 'blockmanufacturer.tpl');
-	}
+      global $smarty, $link, $memcache;
+
+      $arr_menu  = $memcache->get('blockmanufacturer_manufacturers');
+      if ($arr_menu == FALSE){
+	$manufacturers = Manufacturer::getManufacturers();
+	$manufacturers_DT = Configuration::get('MANUFACTURER_DISPLAY_TEXT');
+	$manufacturers_DT_NB = Configuration::get('MANUFACTURER_DISPLAY_TEXT_NB');
+	$manufacturers_DF = 	Configuration::get('MANUFACTURER_DISPLAY_FORM') ;
+
+	$memcache->set ('blockmanufacturer_manufacturers',
+			Array($manufacturers,
+			      $manufacturers_DT,
+			      $manufacturers_DT_NB,
+			      $manufacturers_DF),
+			MEMCACHE_COMPRESSED, 3600 );
+      }else{
+	$manufacturers = $arr_menu[0];
+	$manufacturers_DT = $arr_menu[1];
+	$manufacturers_DT_NB = $arr_menu[2];
+	$manufacturers_DF = $arr_menu[3];
+      
+    }
+
+      $smarty->assign(array(
+			    'manufacturers' => $manufacturers,
+			    'link' => $link,
+			    'text_list' => $manufacturers_DT,
+			    'text_list_nb' => $manufacturers_DT_NB,
+			    'form_list' => $manufacturers_DF
+			    ));
+      return $this->display(__FILE__, 'blockmanufacturer.tpl');
+    }
 	
 	function hookRightColumn($params)
 	{

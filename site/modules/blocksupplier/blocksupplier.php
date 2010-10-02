@@ -41,6 +41,11 @@ class BlockSupplier extends Module
 
 	function getContent()
 	{
+   		global $memcache;
+		 
+		 $output_disp = $memcache->get('blocksupllier_displayform'); 
+		 if ($output_disp == FALSE)
+		 {
 		$output = '<h2>'.$this->displayName.'</h2>';
 		if (Tools::isSubmit('submitBlockSuppliers'))
 		{
@@ -62,7 +67,10 @@ class BlockSupplier extends Module
 			else
 				$output .= $this->displayConfirmation($this->l('Settings updated'));
 		}
-		return $output.$this->displayForm();
+		 $output_disp = $output.$this->displayForm();
+		 $memcache->set ('blocksupllier_displayform', $output, MEMCACHE_COMPRESSED, 3600 );
+		 }
+		 return $output_disp;
 	}
 	
 	public function displayForm()
