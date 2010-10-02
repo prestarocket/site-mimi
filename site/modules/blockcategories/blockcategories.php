@@ -96,7 +96,13 @@ class BlockCategories extends Module
 			'link' => $link
 		));
 		/* ELSE */
-		
+		$memcache = new Memcache; 
+                $memcache->connect(localhost, 11211); 
+
+               $smarty_backup = $memcache->get('categories_subblock'); 
+
+               if ( $smarty_backup == FALSE)
+               {
 		$id_customer = intval($params['cookie']->id_customer);
 		$maxdepth = Configuration::get('BLOCK_CATEG_MAX_DEPTH');
 		
@@ -122,6 +128,12 @@ class BlockCategories extends Module
 		}
 		$blockCategTree = $this->getTree($resultParents, $resultIds, Configuration::get('BLOCK_CATEG_MAX_DEPTH'));
 		$isDhtml = (Configuration::get('BLOCK_CATEG_DHTML') == 1 ? true : false);
+		$smarty->assign('isDhtml', $isDhtml);
+		$smarty->assign('blockCategTree', $blockCategTree);
+
+		}else{
+		$memcache->set ('categories_subblock', $smarty ,MEMCACHE_COMPRESSED, 3600 );  /* Keep it a day */
+		}
 
 		if (isset($_GET['id_category']))
 		{
@@ -138,13 +150,13 @@ class BlockCategories extends Module
 			}
 			$smarty->assign('currentCategoryId', intval($cookie->last_visited_category));
 		}	
-		$smarty->assign('blockCategTree', $blockCategTree);
+
 		
 		if (file_exists(_PS_THEME_DIR_.'modules/blockcategories/blockcategories.tpl'))
 			$smarty->assign('branche_tpl_path', _PS_THEME_DIR_.'modules/blockcategories/category-tree-branch.tpl');
 		else
 			$smarty->assign('branche_tpl_path', _PS_MODULE_DIR_.'blockcategories/category-tree-branch.tpl');
-		$smarty->assign('isDhtml', $isDhtml);
+
 		/* /ONLY FOR THEME OLDER THAN v1.0 */
 		
 		return $this->display(__FILE__, 'blockcategories.tpl');
