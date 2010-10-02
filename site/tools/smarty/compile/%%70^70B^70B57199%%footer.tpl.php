@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.20, created on 2010-09-26 20:58:10
+<?php /* Smarty version 2.6.20, created on 2010-10-02 07:00:33
          compiled from /srv/http/themes/prestashop/footer.tpl */ ?>
 		<?php if (! $this->_tpl_vars['content_only']): ?>
 				</div>

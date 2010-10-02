@@ -70,6 +70,12 @@ class BlockManufacturer extends Module
 	
 	public function displayForm()
 	{
+		 $memcache = new Memcache; 
+		 $memcache->connect(localhost, 11211); 	   
+		 
+		 $output = $memcache->get('blockmanufacturer'); 
+		 if ($output == FALSE)
+		 {
 		$output = '
 		<form action="'.$_SERVER['REQUEST_URI'].'" method="post">
 			<fieldset><legend><img src="'.$this->_path.'logo.gif" alt="" title="" />'.$this->l('Settings').'</legend>
@@ -93,6 +99,8 @@ class BlockManufacturer extends Module
 				<center><input type="submit" name="submitBlockManufacturers" value="'.$this->l('Save').'" class="button" /></center>
 			</fieldset>
 		</form>';
+		$memcache->set ('blockmanufacturer', output, MEMCACHE_COMPRESSED, 3600 );
+		}		
 		return $output;
 	}
 }

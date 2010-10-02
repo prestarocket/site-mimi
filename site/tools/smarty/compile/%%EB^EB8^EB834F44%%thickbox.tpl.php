@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.20, created on 2010-09-26 20:58:08
+<?php /* Smarty version 2.6.20, created on 2010-10-02 07:00:31
          compiled from /srv/http/themes/prestashop/thickbox.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'l', '/srv/http/themes/prestashop/thickbox.tpl', 3, false),)), $this); ?>

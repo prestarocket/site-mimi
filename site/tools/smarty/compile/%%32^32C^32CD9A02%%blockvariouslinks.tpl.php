@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.20, created on 2010-09-26 20:58:10
+<?php /* Smarty version 2.6.20, created on 2010-10-02 07:00:33
          compiled from /srv/http/modules/blockvariouslinks/blockvariouslinks.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'l', '/srv/http/modules/blockvariouslinks/blockvariouslinks.tpl', 3, false),array('modifier', 'addslashes', '/srv/http/modules/blockvariouslinks/blockvariouslinks.tpl', 8, false),array('modifier', 'escape', '/srv/http/modules/blockvariouslinks/blockvariouslinks.tpl', 8, false),)), $this); ?>
