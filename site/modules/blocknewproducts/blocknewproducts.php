@@ -61,8 +61,13 @@ class BlockNewProducts extends Module
 	function hookRightColumn($params)
 	{
 		global $smarty;
+		global $memcache;
 		
+		$newProducts = $memcache->get('blocknewproducts');
+		if ( $newProducts == FALSE){ 
 		$newProducts = Product::getNewProducts(intval($params['cookie']->id_lang), 0, intval(Configuration::get('NEW_PRODUCTS_NBR')));
+		$memcache->set ('blocknewproducts', $newProducts, MEMCACHE_COMPRESSED, 3600 );
+		}	
 		$smarty->assign(array('new_products' => $newProducts, 'mediumSize' => Image::getSize('medium')));
 
 		return $this->display(__FILE__, 'blocknewproducts.tpl');

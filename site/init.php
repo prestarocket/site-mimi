@@ -21,6 +21,9 @@ $page_name = (preg_match('/^[0-9]/', $page_name)) ? 'page_'.$page_name : $page_n
 // Init Cookie
 $cookie = new Cookie('ps');
 
+$memcache = new Memcache; 
+$memcache->connect(localhost, 11211); 
+
 // Switch language if needed and init cookie language
 if ($iso = Tools::getValue('isolang') AND Validate::isLanguageIsoCode($iso) AND ($id_lang = intval(Language::getIdByIso($iso))))
 	$_GET['id_lang'] = $id_lang;

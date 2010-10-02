@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.20, created on 2010-10-02 07:00:32
+<?php /* Smarty version 2.6.20, created on 2010-10-02 11:06:20
          compiled from /srv/http/modules/blocknewproducts/blocknewproducts.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'l', '/srv/http/modules/blocknewproducts/blocknewproducts.tpl', 3, false),array('modifier', 'escape', '/srv/http/modules/blocknewproducts/blocknewproducts.tpl', 9, false),array('modifier', 'strip_tags', '/srv/http/modules/blocknewproducts/blocknewproducts.tpl', 15, false),array('modifier', 'truncate', '/srv/http/modules/blocknewproducts/blocknewproducts.tpl', 16, false),)), $this); ?>

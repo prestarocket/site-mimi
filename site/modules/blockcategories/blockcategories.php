@@ -87,7 +87,7 @@ class BlockCategories extends Module
 
 	function hookLeftColumn($params)
 	{
-		global $smarty, $cookie;
+		global $smarty, $cookie, $memcache;
 
 		/*  ONLY FOR THEME OLDER THAN v1.0 */
 		global $link;
@@ -96,8 +96,6 @@ class BlockCategories extends Module
 			'link' => $link
 		));
 		/* ELSE */
-		$memcache = new Memcache; 
-                $memcache->connect(localhost, 11211); 
 
                $smarty_backup = $memcache->get('categories_subblock'); 
 

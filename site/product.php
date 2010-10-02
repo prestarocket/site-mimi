@@ -104,9 +104,7 @@ global $errors;
 if (!isset($errors))
 	$errors = array();
 
- $memcache = new Memcache; 
- $memcache->connect(localhost, 11211); 
-
+ 
 
  $smarty_backup = $memcache->get('product'.intval(Tools::getValue('id_product'))); 
 
