@@ -104,10 +104,18 @@ global $errors;
 if (!isset($errors))
 	$errors = array();
 
-if (!$id_product = intval(Tools::getValue('id_product')) OR !Validate::isUnsignedId($id_product))
-	$errors[] = Tools::displayError('product not found');
-else
+ $memcache = new Memcache; 
+ $memcache->connect(localhost, 11211); 
+
+
+ $smarty_backup = $memcache->get('product'.intval(Tools::getValue('id_product'))); 
+
+if ( $smarty_backup == FALSE)
 {
+  if (!$id_product = intval(Tools::getValue('id_product')) OR !Validate::isUnsignedId($id_product))
+  	$errors[] = Tools::displayError('product not found');
+  else
+  {
 	$product = new Product($id_product, true, intval($cookie->id_lang));
 	if (!Validate::isLoadedObject($product) OR !$product->active)
 	{
@@ -308,9 +316,9 @@ else
 		$smarty->assign('packItems', Pack::getItemTable($product->id, intval($cookie->id_lang), true));
 		$smarty->assign('packs', Pack::getPacksTable($product->id, intval($cookie->id_lang), true, 1));
 	}
-}
+  }
 
-$smarty->assign(array(
+  $smarty->assign(array(
 	'ENT_NOQUOTES' => ENT_NOQUOTES,
 	'outOfStockAllowed' => intval(Configuration::get('PS_ORDER_OUT_OF_STOCK')),
 	'errors' => $errors,
@@ -319,6 +327,13 @@ $smarty->assign(array(
 	'tax_enabled' => Configuration::get('PS_TAX'),
 	'display_qties' => intval(Configuration::get('PS_DISPLAY_QTIES')),
 	'display_ht' => !Tax::excludeTaxeOption()));
+
+   $memcache->set ('product'.intval(Tools::getValue('id_product')), $smarty ,MEMCACHE_COMPRESSED, 3600 );  /* Keep it a day */
+
+}else{
+  $smarty = $smarty_backup;
+}
+
 
 if (file_exists(_PS_THEME_DIR_.'thickbox.tpl'))
 	$smarty->display(_PS_THEME_DIR_.'thickbox.tpl');
