@@ -44,6 +44,11 @@ class BlockManufacturer extends Module
 	
 	function getContent()
 	{
+		global $memcache;
+		 
+		 $output = $memcache->get('blockmanufacturer_content'); 
+		 if ($output == FALSE)
+		 {
 		$output = '<h2>'.$this->displayName.'</h2>';
 		if (Tools::isSubmit('submitBlockManufacturers'))
 		{
@@ -65,6 +70,8 @@ class BlockManufacturer extends Module
 			else
 				$output .= $this->displayConfirmation($this->l('Settings updated'));
 		}
+		$memcache->set ('blockmanufacturer_content', $output, MEMCACHE_COMPRESSED, 3600 );
+		} 		
 		return $output.$this->displayForm();
 	}
 	
@@ -72,7 +79,7 @@ class BlockManufacturer extends Module
 	{
 		global $memcache;
 		 
-		 $output = $memcache->get('blockmanufacturer'); 
+		 $output = $memcache->get('blockmanufacturer_DisplayForm'); 
 		 if ($output == FALSE)
 		 {
 		$output = '
@@ -98,7 +105,7 @@ class BlockManufacturer extends Module
 				<center><input type="submit" name="submitBlockManufacturers" value="'.$this->l('Save').'" class="button" /></center>
 			</fieldset>
 		</form>';
-		$memcache->set ('blockmanufacturer', $output, MEMCACHE_COMPRESSED, 3600 );
+		$memcache->set ('blockmanufacturer_DisplayForm', $output, MEMCACHE_COMPRESSED, 3600 );
 		}		
 		return $output;
 	}
