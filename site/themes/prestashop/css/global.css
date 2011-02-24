@@ -13,7 +13,7 @@
 	margin: 0
 }
 body {
-	background-color: white;
+	background: url('../img/bg_all.jpg') repeat-x top right;
 	font-size: 11px;
 	font-family: Verdana, Arial, Helvetica, Sans-Serif;
 	color:  #5A4B35;
@@ -189,7 +189,10 @@ h4 { font-size: 1em }
 /* global layout */
 #page {
 	width: 980px;
+	background-color: white;
 	margin: 0 auto 2px auto;
+        border-left: 1px solid #779B5D;
+        border-right: 1px solid #779B5D;
 	text-align: left
 }
 h1#logo {
@@ -207,7 +210,8 @@ h1#logo {
 #left_column {
 	clear: left;
 	width: 191px;
-	margin-right: 21px;
+	margin-right: 16px;
+	margin-left: 5px;
 	overflow: hidden
 }
 #center_column {
@@ -217,7 +221,8 @@ h1#logo {
 }
 #right_column {
 	width: 191px;
-	margin-left: 21px;
+	margin-left: 16px;
+	margin-right: 5px;
 	overflow: hidden
 }
 
