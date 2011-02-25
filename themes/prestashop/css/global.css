@@ -358,7 +358,7 @@ form.std h3 {
 }
 form.std fieldset {
 	border: 1px solid #779b5d;
-	background: #D0D1D5 url('../img/form_bg.jpg') repeat-x top left;
+	background: #e3f4c4 url('../img/form_bg.jpg') repeat-x top left;
 	margin-bottom: 1em;
 	padding-bottom: 1em
 }
@@ -899,7 +899,8 @@ div.exclusive .block_content {
  #right_column div.myaccount { 
 	background: #f6dce8 url('../img/block_footer_myaccount.jpg') no-repeat bottom left 
 }
-div.myaccount h4 { background: #971d58 url('../img/block_header_myaccount.jpg') no-repeat top left }
+div.myaccount h4 { background: #971d58 url('../img/block_header_myaccount.jpg') no-repeat top left;
+	border-bottom: 1px solid  #971d58}
 div.myaccount h4 a, div.myaccount h4 { color: white }
 div.myaccount, div.myaccount a { color: #5d0630 }
 div.myaccount ul.bullet { margin-top: 0.6em }
@@ -972,7 +973,8 @@ div.myaccount .block_content {
 #center_column .products_block h4 { line-height: 1.3em }
 #center_column .products_block .block_content {
 /*	background: #779b5d none; */
-	padding: 0
+	padding: 0;
+	border-bottom: 1px solid #779B5D;
 /*	border-bottom: 1px #779b5d; */
 }
 #center_column .products_block ul li:hover { background-color: #dbf1b2 }
@@ -983,7 +985,7 @@ div.myaccount .block_content {
 	padding: 0 0 1px;
 	width: 132px;
 	border-right: 1px solid white;
-	border-bottom: 1px solid white
+	border-bottom: 1px  white;
 }
 #center_column .products_block ul .product_accessories_description {
 	margin: 0;
@@ -1911,10 +1913,10 @@ ul#suppliers_list li a.button,
 /* adresses */
 div.addresses {
 	border: 1px solid #779b5d;
-	background: #D0D1D5 url('../img/form_bg.jpg') repeat-x top left;
+	background: #e3f4c4 url('../img/form_bg.jpg') repeat-x top left;
 	padding: 0.6em;
 	position: relative;
-	width: 544px
+	width: 540px
 }
 div.addresses h3 { margin: 0 }
 div.addresses p.checkbox input {
