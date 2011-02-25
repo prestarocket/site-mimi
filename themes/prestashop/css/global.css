@@ -191,8 +191,12 @@ h4 { font-size: 1em }
 	width: 985px;
 	background-color: white;
 	margin: 0 auto 2px auto;
+	margin-top: 3px;
+	-moz-border-radius: 5px 0px 0px 0px; 
+	border-radius: 5px 0px 0px 0px; 
         border-left: 1px solid #779B5D;
         border-right: 1px solid #779B5D;
+        border-top: 1px solid #779B5D;
 	text-align: left
 }
 h1#logo {
