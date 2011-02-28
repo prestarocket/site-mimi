@@ -363,7 +363,8 @@ class SPPlus extends PaymentModule
 	
 	function dl($library)
 	{
-		return (function_exists('dl') AND dl($library));
+	  //		return (function_exists('dl') AND dl($library));
+	  return 0;
 	}
 }
 
