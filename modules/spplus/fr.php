@@ -1,0 +1,32 @@
+<?php
+
+global $_MODULE;
+$_MODULE = array();
+$_MODULE['<{spplus}prestashop>payment_return_83ad680d9978b5c06dc859fda9f9f1da'] = 'Votre transaction avec';
+$_MODULE['<{spplus}prestashop>payment_return_75fbf512d744977d62599cc3f0ae2bb4'] = 'est terminée.';
+$_MODULE['<{spplus}prestashop>spplus_be7c71f292d54b05d7bd6c9ad5b50620'] = 'Caisse d\'épargne - SP Plus';
+$_MODULE['<{spplus}prestashop>spplus_01ad6cfc3393ca03a6c65cb7281b5298'] = 'Permet à vos clients de payer via SP Plus';
+$_MODULE['<{spplus}prestashop>spplus_c888438d14855d7d96a2724ee9c306bd'] = 'Configuration enregistrée';
+$_MODULE['<{spplus}prestashop>spplus_738a1d4da1b5dc5883063ec9856b637b'] = 'Erreur de configuration';
+$_MODULE['<{spplus}prestashop>spplus_f4d1ea475eaa85102e2b4e6d95da84bd'] = 'Confirmation';
+$_MODULE['<{spplus}prestashop>spplus_8db4f2e2f6890e64a5cd07c9a59c8bb8'] = 'La bibliothèque SPPLUS PECL peut être chargée, vos transactions seront sécurisées.';
+$_MODULE['<{spplus}prestashop>spplus_d0d9ec9828b4018bb097c8afc06cc2d8'] = 'La bibliothèque SPPLUS PECL ne peut pas être chargée, merci de remplir le champ URL HMAC.';
+$_MODULE['<{spplus}prestashop>spplus_795acb9a0c89791314d3032fe65eeb92'] = 'Clé marchand';
+$_MODULE['<{spplus}prestashop>spplus_d7dc39bd28968a18a79f87bde8ab4a1c'] = 'Code SIRET';
+$_MODULE['<{spplus}prestashop>spplus_ecd87dc4d7ac421547a074ab8283af76'] = 'URL HMAC';
+$_MODULE['<{spplus}prestashop>spplus_386c339d37e737a436499d423a77df0c'] = 'Devise';
+$_MODULE['<{spplus}prestashop>spplus_a881af3974659692caab69a31862ecf6'] = 'Utiliser la devise de PrestaShop';
+$_MODULE['<{spplus}prestashop>spplus_24828b451a72b9711de25e0ced963eaa'] = 'Utiliser la devise du client';
+$_MODULE['<{spplus}prestashop>spplus_af92fc20c108d5533d592eba37d246ea'] = 'Mode de paiement';
+$_MODULE['<{spplus}prestashop>spplus_192449c355c49c8d3cc0a33750b45f08'] = 'Paiement comptant';
+$_MODULE['<{spplus}prestashop>spplus_ee6fd3262ae0cfbb7af129a2a8320652'] = 'Paiement en plusieurs fois';
+$_MODULE['<{spplus}prestashop>spplus_130c5b3473c57faa76e2a1c54e26f88e'] = 'Les deux';
+$_MODULE['<{spplus}prestashop>spplus_ae0d72b06f9f68788e2b7008d62cef13'] = 'Nombre de paiements';
+$_MODULE['<{spplus}prestashop>spplus_a8c36961b6798b0494c0ba83430f2b4d'] = 'Delais entre les paiements';
+$_MODULE['<{spplus}prestashop>spplus_c76660d589be9a49e8846e51b71744ae'] = 'Jour(s)';
+$_MODULE['<{spplus}prestashop>spplus_a1d0ec6d56f8833a078b5a7ac4caf2d4'] = 'Montant minimum';
+$_MODULE['<{spplus}prestashop>spplus_b17f3f4dcf653a5776792498a9b44d6a'] = 'Enregistrer';
+$_MODULE['<{spplus}prestashop>spplus_1b9441f293cd7307b59296f616bb858a'] = 'Ce module a été développé par PrestaShop et ne peut être vendu que via';
+$_MODULE['<{spplus}prestashop>spplus_6df4dad510fb08e2e6df44b53cb2ce29'] = 'Merci de reporter tout bug à';
+$_MODULE['<{spplus}prestashop>spplus_d575acff7e1035a4212d2a53d5a8c115'] = 'ou en utilisant notre';
+$_MODULE['<{spplus}prestashop>spplus_23372c0d3713719764670087006fc1b6'] = 'formulaire de contact';
