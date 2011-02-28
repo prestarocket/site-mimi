@@ -192,8 +192,8 @@ h4 { font-size: 1em }
 	background-color: white;
 	margin: 0 auto 2px auto;
 	margin-top: 3px;
-	-moz-border-radius: 5px 5px 0px 0px; 
-	border-radius: 5px 5px 0px 0px; 
+	-moz-border-radius: 10px 10px 0px 0px; 
+	border-radius: 10px 10px 0px 0px; 
         border-left: 1px solid #779B5D;
         border-right: 1px solid #779B5D;
         border-top: 1px solid #779B5D;
@@ -2018,7 +2018,7 @@ p#security_informations {
 }
 .payment_module a:hover, .payment_module a:focus, .payment_module a:active {
 	border: 1px solid #488c40;
-	background-color: #e5e6e7;
+	background-color: #daeeb5;
 	color: #374853
 }
 
