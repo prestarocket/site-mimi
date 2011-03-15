@@ -222,7 +222,7 @@ class Tools
 		$c_format = (is_array($currency) ? $currency['format'] : $currency->format);
 		$c_decimals = (is_array($currency) ? intval($currency['decimals']) : intval($currency->decimals)) * _PS_PRICE_DISPLAY_PRECISION_;
 		$c_blank = (is_array($currency) ? $currency['blank'] : $currency->blank);
-		$blank = ($c_blank ? ' ' : '');
+		$blank = ($c_blank ? ' ' : '');
 		$ret = 0;
 		if (($isNegative = ($price < 0)))
 			$price *= -1;
@@ -235,7 +235,7 @@ class Tools
 				break;
 			/* 0 000,00 X*/
 			case 2:
-				$ret = number_format($price, $c_decimals, ',', ' ').$blank.$c_char;
+				$ret = number_format($price, $c_decimals, ',', ' ').$blank.$c_char;
 				break;
 			/* X 0.000,00 */
 			case 3:
