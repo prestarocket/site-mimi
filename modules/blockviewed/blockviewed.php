@@ -20,7 +20,7 @@ class BlockViewed extends Module
 	function install()
 	{
 		if (!parent::install()
-			OR !$this->registerHook('leftColumn')
+			OR !$this->registerHook('rightColumn')
 			OR !Configuration::updateValue('PRODUCTS_VIEWED_NBR', 2))
 			return false;
 		return true;

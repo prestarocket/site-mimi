@@ -1,0 +1,2 @@
+188
+a:4:{s:8:"template";a:1:{s:66:"/homez.387/lilibio/www/site/modules/sendtoafriend/product_page.tpl";b:1;}s:9:"timestamp";i:1298626483;s:7:"expires";i:1298630083;s:13:"cache_serials";a:0:{}}<li><a href="/shop/modules/sendtoafriend/sendtoafriend-form.php?id_product=414">Envoyer &agrave; un ami</a></li>
