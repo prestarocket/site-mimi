@@ -16,8 +16,8 @@
 // -->
 </script>
 <p class="payment_module">
-	<a target="SPPLUS" onclick="Ouvrir_Spplus();" href="{$url_calculhmac}" target="_blank" title="{l s='Pay with SPPlus' mod='spplus'}" style="cursor: pointer;">
-		<img src="{$module_template_dir}spplus.gif" alt="{l s='Pay with SPPlus' mod='spplus'}" />
-		{l s='Pay with SPPlus' mod='spplus'}
+	<a target="SPPLUS" onclick="Ouvrir_Spplus();" href="{$url_calculhmac}" target="_blank" title="{l s='Régler en ligne avec la solution sécurisée SPPLUS - Pay with SPPLUS' mod='spplus'}" style="cursor: pointer;">
+		<img src="{$module_template_dir}spplus.gif" alt="{l s='Régler en ligne avec la solution sécurisée SPPLUS - Pay with SPPLUS' mod='spplus'}" />
+		{l s='Régler en ligne avec la solution sécurisée SPPLUS - Pay with SPPLUS' mod='spplus'}
 	</a>
 </p>

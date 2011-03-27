@@ -827,7 +827,7 @@ class		Cart extends ObjectModel
 		$configuration = Configuration::getMultiple(array('PS_SHIPPING_FREE_PRICE', 'PS_SHIPPING_HANDLING', 'PS_SHIPPING_METHOD', 'PS_SHIPPING_FREE_WEIGHT'));
 		// Free fees
 		$free_fees_price = 0;
-		if (isset($configuration['PS_SHIPPING_FREE_PRICE']))
+		if (isset($configuration['PS_SHIPPING_FREE_PRICE']) && Configuration::get('PS_CARRIER_DEFAULT')==$id_carrier)
 			$free_fees_price = Tools::convertPrice(floatval($configuration['PS_SHIPPING_FREE_PRICE']), new Currency(intval($this->id_currency)));
 		$orderTotalwithDiscounts = $this->getOrderTotal(true, 4);
 		if ($orderTotalwithDiscounts >= floatval($free_fees_price) AND floatval($free_fees_price) > 0)

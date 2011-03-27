@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{$lang_iso}">
 	<head>
-		<title>{$meta_title|escape:'htmlall':'UTF-8'}</title>
+<meta name="google-site-verification" content="S6F0Ie_6vZ2qQQJaguKUiZNfcPQztywFpUcvjUgfBUs" />
+      <title>{$meta_title|escape:'htmlall':'UTF-8'}</title>
 {if isset($meta_description) AND $meta_description}
 		<meta name="description" content="{$meta_description|escape:html:'UTF-8'}" />
 {/if}
@@ -34,7 +35,7 @@
 	<script type="text/javascript" src="{$js_uri}"></script>
 	{/foreach}
 {/if}
-		{$HOOK_HEADER}
+{$HOOK_HEADER}
 	</head>
 	
 	<body {if $page_name}id="{$page_name|escape:'htmlall':'UTF-8'}"{/if}>

@@ -894,7 +894,7 @@ div.exclusive h4 a { color: white }
 div.exclusive li { margin-top: 0 }
 div.exclusive, div.exclusive a { color: white }
 div.exclusive .block_content {
-	background: #bdc2c9 url('../img/block_exclusive_bg.jpg') repeat-x bottom left;
+	background: #b0da5a url('../img/block_exclusive_bg.jpg') repeat-x bottom left;
 /*	border-left: 1px solid #5a4b35;
 	border-right: 1px solid #5a4b35*/
 }
