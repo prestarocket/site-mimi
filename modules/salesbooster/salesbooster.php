@@ -286,7 +286,7 @@ class Salesbooster extends Module{
                             //----------------
                             // Google shopping
                             //----------------
-                            $this->build_line(@$order_fields[66],''); // gtin
+                            $this->build_line(@$order_fields[66],$product['ean13']); // gtin
                             $this->build_line(@$order_fields[67],$product['quantity']);
                             $this->build_line(@$order_fields[68],':::'.$shipping_price);
                             $this->build_line(@$order_fields[69],''); // tva
@@ -301,7 +301,7 @@ class Salesbooster extends Module{
                             $this->build_line(@$order_fields[77],''); // année
                             $this->build_line(@$order_fields[78],''); // auteur
                             $this->build_line(@$order_fields[79],''); // édition
-                            $this->build_line(@$order_fields[80],''); // marque
+                            $this->build_line(@$order_fields[80],Manufacturer::getNameById($product['id_manufacturer'])); // marque
                             $this->build_line(@$order_fields[81],  strtolower(substr($product['name'],0,70))); // nom
                             $this->build_line(@$order_fields[82],''); // réserve
                             $this->build_line(@$order_fields[83],''); // réserve
@@ -527,7 +527,7 @@ class Salesbooster extends Module{
                                         //----------------
                                         // Google shopping
                                         //----------------
-                                        $this->build_line_combination(@$order_fields[66],''); // gtin
+                                        $this->build_line_combination(@$order_fields[66],$product_attribute['ean13']); // gtin
                                         $this->build_line_combination(@$order_fields[67],$product_attribute['quantity']);
                                         $this->build_line_combination(@$order_fields[68],':::'.$shipping_price);
                                         $this->build_line_combination(@$order_fields[69],''); // tva
@@ -542,7 +542,7 @@ class Salesbooster extends Module{
                                         $this->build_line_combination(@$order_fields[77],''); // année
                                         $this->build_line_combination(@$order_fields[78],''); // auteur
                                         $this->build_line_combination(@$order_fields[79],''); // édition
-                                        $this->build_line_combination(@$order_fields[80],''); // marque
+                                        $this->build_line_combination(@$order_fields[80],Manufacturer::getNameById($product['id_manufacturer'])); // marque
                                         $this->build_line_combination(@$order_fields[81],strtolower(substr($product['name'].' '.stripslashes($list),0,70))); // nom
                                         $this->build_line_combination(@$order_fields[82],''); // réserve
                                         $this->build_line_combination(@$order_fields[83],''); // réserve
