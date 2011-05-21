@@ -3,7 +3,7 @@
 	<h4>{l s='Featured products' mod='homefeatured'}</h4>
 	{if isset($products) AND $products}
 		<div class="block_content">
-			{assign var='liHeight' value=342}
+			{assign var='liHeight' value=350}
 			{assign var='nbItemsPerLine' value=4}
 			{assign var='nbLi' value=$products|@count}
 			{assign var='nbLines' value=$nbLi/$nbItemsPerLine|ceil}

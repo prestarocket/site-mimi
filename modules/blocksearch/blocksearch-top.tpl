@@ -38,4 +38,10 @@
 		{/literal}
 	</script>
 {/if}
+<p id="annonce">
+Cosmétiques et produits de bien être certifiés BIO<br>
+Frais de ports offert à partir de 69€ d'achat<br>
+De nombreuses marques, des idées cadeaux et des conseils de pro !
+</p>
+
 <!-- /Block search module TOP -->

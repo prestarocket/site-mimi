@@ -16,7 +16,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="{$img_ps_dir}favicon.ico" />
 {if isset($css_files)}
 	{foreach from=$css_files key=css_uri item=media}
-	<link href="{$css_uri}" rel="stylesheet" type="text/css" media="{$media}" />
+	<link href="{$css_uri}?v={php} $css_path = getcwd().$this->get_template_vars('css_uri'); echo filemtime($css_path);{/php}" rel="stylesheet" type="text/css" media="{$media}" />
 	{/foreach}
 {/if}
 		<script type="text/javascript" src="{$content_dir}js/tools.js"></script>
@@ -45,7 +45,7 @@
 
 			<!-- Header -->
 			<div id="header">
-				<div id="logo"><a href="{$base_dir}" title="{$shop_name|escape:'htmlall':'UTF-8'}"><img src="{$img_ps_dir}logo.jpg" alt="{$shop_name|escape:'htmlall':'UTF-8'}" /></a></div>
+				<div id="logo"><a href="{$base_dir}" title="{$shop_name|escape:'htmlall':'UTF-8'}"><img src="{$img_ps_dir}logo2.jpg" alt="{$shop_name|escape:'htmlall':'UTF-8'}" /></a></div>
 				<div id="header_right">
 					{$HOOK_TOP}
 				</div>

@@ -13,7 +13,7 @@
 	margin: 0
 }
 body {
-	background: #f0fdd7 url('../img/bg_all.jpg') repeat-x top right;
+	background: #8faf7c;
 	font-size: 11px;
 	font-family: Verdana, Arial, Helvetica, Sans-Serif;
 	color:  #5A4B35;
@@ -220,14 +220,17 @@ h4 { font-size: 1em }
 }
 #logo {
 	float: left;
-	width: 27%;
-	margin-top: 0.5em
+	width: 23%;
+	margin-top: 0.5em;
+	margin-left: 5px;
 }
 #header_right {
 	float: left;
-	margin-bottom: 15px;
-	width: 73%;
-	text-align: right
+	/* margin-bottom: 15px;*/
+	width: 76%;
+	text-align: right;
+	background: transparent url("../img/banniere_cut.jpg") no-repeat bottom left;
+	height: 108px
 }
 #left_column, #center_column, #right_column { float: left }
 #left_column {
@@ -486,13 +489,15 @@ span.exclusive_mini, span.exclusive_small, span.exclusive, span.exclusive_large 
 }
 
 /* exclusive button */
-input.exclusive_mini, input.exclusive_small, input.exclusive, input.exclusive_large,
+input.button, input.exclusive_mini, input.exclusive_small, input.exclusive, input.exclusive_large,
 input.exclusive_mini_disabled, input.exclusive_small_disabled, input.exclusive_disabled, input.exclusive_large_disabled,
 a.exclusive_mini, a.exclusive_small, a.exclusive, a.exclusive_large,
 span.exclusive_mini, span.exclusive_small, span.exclusive, span.exclusive_large {
 	color: white!important
 }
-
+input.button{
+	width: 120px;
+}
 /* exclusive disabled button */
 input.exclusive_mini_disabled, input.exclusive_small_disabled, input.exclusive_disabled, input.exclusive_large_disabled, span.exclusive_mini, span.exclusive_small, span.exclusive, span.exclusive_large {
 	color: #488c40!important
@@ -520,7 +525,7 @@ input.button_small, input.button_small_disabled, input.exclusive_small, input.ex
 	width: 60px;
 	background-image: url('../img/button-small.gif')
 }
-input.button, input.button_disabled, input.exclusive, input.exclusive_disabled, a.button, a.exclusive, span.button, span.exclusive {
+input.button_disabled, input.exclusive, input.exclusive_disabled, a.button, a.exclusive, span.button, span.exclusive {
 	width: 120px;
 	background-image: url('../img/button-medium.gif')
 }
@@ -530,10 +535,20 @@ input.button_large, input.button_large_disabled, input.exclusive_large, input.ex
 }
 
 /* exclusive button */
-input.exclusive, input.exclusive_disabled, a.exclusive, span.exclusive { background-image: url('../img/button-medium_exclusive.gif') }
+input.button, input.exclusive, input.exclusive_disabled, a.exclusive, span.exclusive { background-image: url('../img/button-medium_exclusive.gif') }
 input.exclusive_mini, input.exclusive_mini_disabled, a.exclusive_mini, span.exclusive_mini { background-image: url('../img/button-mini_exclusive.gif') }
 input.exclusive_small, input.exclusive_small_disabled, a.exclusive_small, span.exclusive_small { background-image: url('../img/button-small_exclusive.gif') }
 input.exclusive_large, input.exclusive_large_disabled, a.exclusive_large, span.exclusive_large { background-image: url('../img/button-large_exclusive.gif') }
+
+
+/* annonce */
+#header #annonce {
+	margin-right: 10px;
+	width: 300px;
+	float: right;
+	text-align: justify;
+	font-size: 10px;
+}
 
 /* id_state field in managed via JS and is firstly hidden */
 form p.id_state { display: none }
@@ -761,7 +776,7 @@ form#productsSortForm p select { font-size: 1em }
 
 /* top links */
 ul#header_links {
-	margin: 0.4em 0.3em 0 0;
+	margin: 0.4em 0.3em 0 170px;
 	list-style-type: none;
 	float: left
 }
@@ -786,10 +801,11 @@ ul#header_links {
 
 /* block top search */
 #header_right #search_block_top {
-	float: right;
-	background: #e5e6e7 url('../img/block_search_bg.jpg') no-repeat top right;
-	margin-bottom: 11px;
+	float: left;
+/*	background: #e5e6e7 url('../img/block_search_bg.jpg') no-repeat top right;*/
+	margin-bottom: 5px;
 	margin-right: 10px;
+	margin-left: 30px;
 	width: 336px;
 	height: 28px
 }
@@ -802,7 +818,10 @@ ul#header_links {
 	height: 18px;
 	display: block
 }
-#header_right #search_block_top input#search_query { width: 12em }
+#header_right #search_block_top input#search_query {
+	width: 12em;
+	margin-top: 1px;
+}
 
 /* block left column "Quick search" */
 #search_block_left input { margin: 2px 0 0 0 }
@@ -810,6 +829,10 @@ ul#header_links {
 #search_button { display: inline }
 
 /* block top user information */
+#header_user{
+	margin-top: 8px;
+}
+
 #header_right #header_user {
 	float: right;
 	width: 535px;
@@ -839,7 +862,7 @@ ul#header_links {
 
 /* Footer */
 #footer {
-	border-top: 1px solid #779b5d;
+/*	border-top: 1px solid #779b5d;*/
 	padding: 0.5em 0;
 	clear: both
 }
@@ -863,7 +886,8 @@ div.block {
 #left_column div.block,
  #right_column div.block {
 	padding-bottom: 5px;
-	background: transparent url('../img/block_footer.gif') no-repeat bottom left
+	background: transparent url('../img/block_footer.gif') no-repeat bottom left;
+	border-bottom: 0;
 }
 div.block h4 {
 	text-transform: uppercase;
@@ -874,12 +898,19 @@ div.block h4 {
 	border-bottom: 1px solid #80aa68;
 	padding-top: 2px;
 	line-height: 1.3em;
-	color: #e7f8c7;
+	/* color: #e7f8c7;*/
+	color: white;
 	height: 19px;
 	background: transparent url('../img/block_header.gif') no-repeat top left
 }
-div.block h4 a { color: #e7f8c7 }
-div.block ul { list-style: none }
+div.block h4 a {
+/* color: #e7f8c7 */
+color: white;
+
+}
+div.block ul { 
+	list-style: none;
+}
 div.block ul.tree li { padding-left: 1.2em }
 div.block a:hover { text-decoration: underline }
 #left_column div.block .block_content a.button_large,
@@ -887,7 +918,7 @@ div.block a:hover { text-decoration: underline }
 div.block .block_content {
 	border-left: 1px solid #779b5d;
 	border-right: 1px solid #779b5d;
-
+	border-bottom: 0;
 	padding: 0 0.7em;
 	background: #e7f8c7 url('../img/block_bg.jpg') repeat-x bottom left;
 	min-height: 16px
@@ -999,7 +1030,9 @@ div.myaccount .block_content {
 /*	background: #779b5d none; */
 	padding: 0;
 	border-bottom: 1px solid #779B5D;
-/*	border-bottom: 1px #779b5d; */
+<--[if lte IE7]
+	padding: 0 0 8px;
+-->
 }
 #center_column .products_block ul li:hover { background-color: #dbf1b2 }
 #center_column .products_block ul li {
@@ -1025,7 +1058,7 @@ div.myaccount .block_content {
 #center_column div.products_block h5 {
 	display: block;
 	margin-top: 8px;
-	height: 3.57em
+	height: 4.57em
 }
 #center_column div.products_block h5 a {
 	color: #374853;
@@ -1036,7 +1069,7 @@ div.myaccount .block_content {
 	padding: 0
 }
 #center_column div.products_block p.product_desc {
-	height: 9em;
+	height: 8em;
 	color: #5a4b35
 }
 #center_column div.products_block a.product_image {
@@ -1062,7 +1095,7 @@ div.myaccount .block_content {
 	float: none;
 	margin: 0
 }
-#center_column div.products_block h5 { margin: 10px 5px 3px 5px }
+#center_column div.products_block h5 { margin: 5px 5px 8px 5px }
 #center_column div.products_block p.product_desc { margin: 0 5px }
 #center_column div.products_block ul li p.product_desc a { font-weight: normal }
 #center_column .products_block span.price {
@@ -1195,9 +1228,11 @@ div#categories_block_left ul.tree li {
 	margin-left: 0;
 	font-weight: bold;
 	font-size: 13px;
-	line-height: 13px
+	line-height: 13px;
 }
-div#categories_block_left ul.tree li.last { padding-bottom: 0 }
+div#categories_block_left ul.tree li.last { 
+	padding-bottom: 0;
+}
 div#categories_block_left ul.tree li ul { padding: 2px 0 0 }
 div#categories_block_left ul.tree li ul li {
 	padding: 1px 0 1px 15px;
@@ -1751,7 +1786,7 @@ div.categTree {
 	width: 233px
 }
 #primary_block #short_description_block {
-	background: #E7F8C7 url('../img/product-short-desc-bg.gif') repeat-x bottom left;
+	background: #E7F8C7 url('../img/product-short-desc-bg.gif') repeat-x top left;
 	border: 1px #779b5d solid;
 	padding: 0.7em;
 	margin-bottom: 1.5em
