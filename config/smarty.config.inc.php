@@ -9,6 +9,7 @@ $smarty->config_dir 	= _PS_SMARTY_DIR_.'configs';
 $smarty->caching 		= false;
 $smarty->force_compile	= false; // to pass "false" when put into production
 $smarty->compile_check	= false;
+$smarty->cache_lifetime = 3600*24;
 //$smarty->debugging		= true;
 $smarty->debug_tpl		= _PS_ALL_THEMES_DIR_ . 'debug.tpl';
 

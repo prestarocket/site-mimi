@@ -1,0 +1,7 @@
+RewriteEngine On 
+
+RewriteCond %{REQUEST_URI} blog/*$ [NC]
+RewriteRule ^(.*) http://blog.lilibio.com/%1 [QSA,L,R=302]
+
+
+

@@ -56,7 +56,10 @@ class BlockLink extends Module
 		));
 	 	if (!$links)
 			return false;
-		return $this->display(__FILE__, 'blocklink.tpl');
+		$smarty->caching = false;
+		$display = $this->display(__FILE__, 'blocklink.tpl');
+		$smarty->caching = true;
+		return $display;
 	}
 	
 	public function hookRightColumn($params)

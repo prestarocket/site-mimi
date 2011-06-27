@@ -34,7 +34,10 @@ class BlockManufacturer extends Module
 			'text_list_nb' => Configuration::get('MANUFACTURER_DISPLAY_TEXT_NB'),
 			'form_list' => Configuration::get('MANUFACTURER_DISPLAY_FORM'),
 		));
-		return $this->display(__FILE__, 'blockmanufacturer.tpl');
+		$smarty->caching = true;
+		$display = $this->display(__FILE__, 'blockmanufacturer.tpl');
+		$smarty->caching = false;
+		return $display;
 	}
 	
 	function hookRightColumn($params)

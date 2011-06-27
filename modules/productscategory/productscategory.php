@@ -92,7 +92,8 @@ class productsCategory extends Module
 		// Display tpl
 		$smarty->assign('categoryProducts', $categoryProducts);
 		$smarty->assign('middlePosition', $middlePosition);
-		return $this->display(__FILE__, 'productscategory.tpl');
+		$display = $this->display(__FILE__, 'productscategory.tpl');
+		return $display;
 	}
 }
 ?>

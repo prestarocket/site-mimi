@@ -343,7 +343,8 @@ class ProductComments extends Module
 		));
 		$nbProducts = $commentNumber;
 		require_once(dirname(__FILE__).'/../../pagination.php');
-		return ($this->display(__FILE__, '/productcomments.tpl'));
+		$display = $this->display(__FILE__, '/productcomments.tpl');
+		return $display;
 	}
 
 	public function hookHeader()

@@ -1,0 +1,16 @@
+/* 
+-------------------------------
+DDLX - Slideshow  CSS
+http://www.ddlx.org
+-------------------------------
+*/
+
+#banner {position:relative;}
+#banner-imgs {position:relative; width: 530px; height: 240px; overflow:hidden }
+#arrow_left {position:absolute; top:100px; left:-10px; z-index: 10; cursor: pointer; }
+#arrow_left a:hover {background:url('images/arrow_left.gif')}
+#arrow_right {position:absolute; top:100px; right:-10px; z-index: 10; cursor: pointer;}
+#banner .btn {position:absolute; top:215px; left:120px; }
+#news li {padding-bottom:15px;}
+.grid_16{display:inline;float:left;margin-left:10px;margin-right:10px}
+.container_12 .grid_12,.container_16 .grid_16{width:530px;}

@@ -105,7 +105,10 @@ class BlockInfos extends Module
 		foreach($cms AS $row)
 			$id_cms[] = intval($row['id_cms']);
 		$smarty->assign('cmslinks', $id_cms ? CMS::getLinks($cookie->id_lang, $id_cms) : array());
-		return $this->display(__FILE__, 'blockinfos.tpl');
+		$smarty->caching = true;
+		$display = $this->display(__FILE__, 'blockinfos.tpl');
+		$smarty->caching = false;
+		return $display;
 	}
 
 	function hookRightColumn($params)

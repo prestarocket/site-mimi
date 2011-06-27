@@ -830,14 +830,14 @@ ul#header_links {
 
 /* block top user information */
 #header_user{
-	margin-top: 8px;
+	margin-top: 7px;
 }
 
 #header_right #header_user {
 	float: right;
 	width: 535px;
 	text-align: right;
-	margin-right: 6px
+	margin-right: 20px
 }
 #header_user p { color: #5a4b35 }
 #header_user span { font-weight: bold }
@@ -984,6 +984,16 @@ div.myaccount .block_content {
 	color: white
 }
 
+/* style for menu bar */
+#promo {
+	padding-right: 1.5em;
+	color: white;
+	font-weight: bold;
+}
+
+#promo a, .sf-menu a:visited {
+	 color: white;
+}
 /* Styles for products blocks */
 
 /* block products (new, features, viewed, etc...) on left and right column */

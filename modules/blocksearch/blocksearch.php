@@ -29,7 +29,10 @@ class BlockSearch extends Module
 		// check if library javascript load in header hook
 		$this->_disabledSearchAjax();
 		$smarty->assign('ajaxsearch', intval(Configuration::get('PS_SEARCH_AJAX')));
-		return $this->display(__FILE__, 'blocksearch.tpl');
+		$smarty->caching = true;
+		$display = $this->display(__FILE__, 'blocksearch.tpl');
+		$smarty->caching = false;
+		return $display;
 	}
 
 	function hookRightColumn($params)
