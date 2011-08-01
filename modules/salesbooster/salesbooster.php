@@ -303,7 +303,7 @@ class Salesbooster extends Module{
                             $this->build_line(@$order_fields[79],''); // édition
                             $this->build_line(@$order_fields[80],Manufacturer::getNameById($product['id_manufacturer'])); // marque
                             $this->build_line(@$order_fields[81],  strtolower(substr($product['name'],0,70))); // nom
-                            $this->build_line(@$order_fields[82],''); // réserve
+                            $this->build_line(@$order_fields[82],'Santé et beauté'); // google_cat
                             $this->build_line(@$order_fields[83],''); // réserve
                             $this->build_line(@$order_fields[84],''); // réserve
                             $this->build_line(@$order_fields[85],''); // réserve

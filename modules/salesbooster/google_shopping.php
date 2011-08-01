@@ -33,6 +33,7 @@ $header_file = array(
     25 => 'year',
     26 => 'author',
     27 => 'edition',
+    28 => 'google_product_category',
 );
 $this->file[] = $header_file;
 // attribution de la colonne
@@ -64,7 +65,8 @@ $order_fields = array(
     77 => 25,// année            pos25
     78 => 26,// auteur           pos26
     79 => 27,// édition          pos27
+    82 => 28,// google_cat       pos28
 );
-$active_fields = 27;
+$active_fields = 28;
 
 ?>
