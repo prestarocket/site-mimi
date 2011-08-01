@@ -1896,7 +1896,27 @@ div.categTree {
 	font-size: 0.75em;
 	text-align: right
 }
-
+#primary_block #sociallinks {
+	text-align: right;
+	margin-top: 20px;
+	float: left;
+	display: inline;
+}
+#primary_block #googleone {
+	width: 50px;
+	float:left;
+	margin-right: 10px;
+}
+#primary_block #fakebook {
+	width: 50px;
+	float:left;
+	margin-right: 10px;
+	overflow: hidden;
+}
+#primary_block #bruiteur {
+	width: 50px;
+	float:left;
+}
 /* views block */
 #views_block {
 	margin: 0 auto;

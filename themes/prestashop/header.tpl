@@ -30,6 +30,10 @@
 		<script type="text/javascript" src="{$content_dir}js/jquery/jquery-1.2.6.pack.js"></script>
 		<script type="text/javascript" src="{$content_dir}js/jquery/jquery.easing.1.3.js"></script>
 		<script type="text/javascript" src="{$content_dir}js/jquery/jquery.hotkeys-0.7.8-packed.js"></script>
+		<!-- Placez cette balise dans la section <head> ou juste avant la balise de fermeture </body> -->
+		 <script type="text/javascript" src="https://apis.google.com/js/plusone.js"> {literal} {lang: 'fr'}{/literal} </script>
+		 <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+		 <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 {if isset($js_files)}
 	{foreach from=$js_files item=js_uri}
 	<script type="text/javascript" src="{$js_uri}"></script>

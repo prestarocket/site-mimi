@@ -285,6 +285,18 @@ var fieldRequired = '{l s='Please fill all required fields' js=1}';
 				{$HOOK_PRODUCT_ACTIONS}
 			{/if}
 		</form>
+		<div id="sociallinks">
+                         
+			<div id="fakebook" class="social">
+			        <fb:like href="" layout="box_count" width="150" show_faces="false" font=""></fb:like>
+			</div>
+			 <div id="googleone" class="social">
+	                        <g:plusone size="tall"></g:plusone>
+	                 </div>
+			 <div id="bruiteur" class="social">
+				<a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-lang="fr" width="45">Tweet</a>
+			 </div>
+		</div>
 		{if $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
 	</div>
 </div>
