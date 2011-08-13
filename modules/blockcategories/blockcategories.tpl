@@ -1,4 +1,4 @@
-<script type="text/javascript" src="{$js_dir}tools/treeManagement.js"></script>
+<script type="text/javascript" src="/themes/prestashop/js/tools/treeManagement.js"></script>
 
 <!-- Block categories module -->
 <div id="categories_block_left" class="block">

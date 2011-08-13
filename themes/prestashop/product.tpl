@@ -294,7 +294,7 @@ var fieldRequired = '{l s='Please fill all required fields' js=1}';
 	                        <g:plusone size="tall"></g:plusone>
 	                 </div>
 			 <div id="bruiteur" class="social">
-				<a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-lang="fr" width="45">Tweet</a>
+				<!-- No SSL for twitter <a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-lang="fr" width="45">Tweet</a> -->
 			 </div>
 		</div>
 		{if $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
