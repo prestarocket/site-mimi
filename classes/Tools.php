@@ -542,7 +542,7 @@ class Tools
 
 		/* Metas-tags */
 		$metas = Meta::getMetaByPage($page_name, $id_lang);
-		$ret['meta_title'] = (isset($metas['title']) AND $metas['title']) ? $metas['title'].' - '.Configuration::get('PS_SHOP_NAME') : Configuration::get('PS_SHOP_NAME');
+		$ret['meta_title'] = (isset($metas['title']) AND $metas['title']) ? Configuration::get('PS_SHOP_NAME').' - '.$metas['title'] : Configuration::get('PS_SHOP_NAME');
 		$ret['meta_description'] = (isset($metas['description']) AND $metas['description']) ? $metas['description'] : '';
 		$ret['meta_keywords'] = (isset($metas['keywords']) AND $metas['keywords']) ? $metas['keywords'] :  '';
 		return $ret;
