@@ -5,7 +5,7 @@
   height: 30px;
   line-height: 30px;
   padding-left: 7px;
-  background: transparent url(../gfx/menu/menu.gif) repeat-x left center;
+  background: #5C3614;
 }
 .sf-menu, .sf-menu * {
 	margin:			0;
@@ -38,8 +38,11 @@
 .sf-menu li {
 	float:			left;
 	position:		relative;
+<--[if IE7]
 	z-index:		3000;
+-->
 }
+
 .sf-menu a {
 	display:		block;
 	position:		relative;
@@ -83,18 +86,22 @@ ul.sf-menu li li li.sfHover ul {
 	text-decoration:none;
 }
 
+.sf-menu li a{
+	color: black;
+}
+
 .sf-menu a, .sf-menu a:visited  { /* visited pseudo selector so IE6 applies text colour*/
-	color:			#374853;
+	color:			#5C3614;
 }
 .sf-menu li li {
-	background:		#E7F8C7;/*#AABDE6;*/
+	background:		#FBF5F0;/*#AABDE6;*/
 }
 .sf-menu li li li {
 	background:		#E7F8C7;/*#9AAEDB;*/
 }
-.sf-menu li:hover, .sf-menu li.sfHover, .sf-menu li.sfHoverForce,
+.sf-menu li:hover, .sf-menu li.sfHover,
 .sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
-  background: transparent url(../gfx/menu/hover.gif) repeat-x;
+  background: #ACC81E;
 }
 .sf-menu li.noBack:hover, .sf-menu li.sfHover.noBack, .sf-menu li.sfHoverForce.noBack,
 .sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
@@ -103,10 +110,16 @@ ul.sf-menu li li li.sfHover ul {
 }
 .sf-menu ul li:hover, .sf-menu ul li.sfHover,
 .sf-menu ul li a:focus, .sf-menu ul li a:hover, .sf-menu ul li a:active {
-	background:		#B0DA5A;
+	background:		#ACC81E;
 	outline:		0;
 	color: black;
 }
+#blog a {
+	color: white;
+	font-weight: bold;
+	padding-left: 4px;
+}
+
 /*** arrows **/
 .sf-menu a.sf-with-ul {
 	padding-right: 	2em;

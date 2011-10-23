@@ -27,7 +27,7 @@ class BlockSpecialsCarousel extends Module
 
     function install()
     {
-        if (!parent::install() OR !$this->registerHook('rightColumn') OR !$this->registerHook('paymentReturn'))
+        if (!parent::install() OR !$this->registerHook('leftColumn') OR !$this->registerHook('paymentReturn'))
                 return false;
         return true;
     }
@@ -113,8 +113,10 @@ class BlockSpecialsCarousel extends Module
                     'timeEffet' => $this->timeEffet,
                     'timeTrans' => $this->timeTrans,
                     'products' => $new_product));
-	
-		return $this->display(__FILE__, 'blockspecialscarousel.tpl');
+                $smarty->caching = true;
+		$display = $this->display(__FILE__, 'blockspecialscarousel.tpl');
+		$smarty->caching = false;
+		return $display;
     }
 
     function hookLeftColumn($params)

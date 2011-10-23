@@ -1,2 +1,0 @@
-182
-a:4:{s:8:"template";a:1:{s:60:"/homez.387/lilibio/www/site/modules/productcomments//tab.tpl";b:1;}s:9:"timestamp";i:1298626483;s:7:"expires";i:1298630083;s:13:"cache_serials";a:0:{}}<li><a href="#idTab5" class="idTabHrefShort">Commentaires (0)</a></li>

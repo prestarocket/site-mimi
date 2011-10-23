@@ -18,10 +18,10 @@ $(document).ready(function(){
 
   <div id="banner" class="grid_16">
     <div id="banner-imgs">
-     <a href="#" style="display: none;" ><img  src="modules/DDLX_Slider_Free/images/1.jpg" alt="" /></a>
-     <a href="#" style="display: none;" ><img src="modules/DDLX_Slider_Free/images/2.jpg" alt="" /></a>
-     <a href="#" style="display: none;" ><img src="modules/DDLX_Slider_Free/images/3.jpg" alt="" /></a>
-     <a href="#" style="display: none;" ><img src="modules/DDLX_Slider_Free/images/4.jpg" alt="" /></a>
+     <a href="http://www.lilibio.com/175-fluide-energissant-bioeclat.html" style="display: none;" ><img  src="modules/DDLX_Slider_Free/images/1.jpg" alt="" /></a>
+     <a href="http://www.lilibio.com/3_les-douces-angevines" style="display: none;" ><img src="modules/DDLX_Slider_Free/images/2.jpg" alt="" /></a>
+     <a href="http://www.lilibio.com/130-tonus-et-vitalite" style="display: none;" ><img src="modules/DDLX_Slider_Free/images/3.jpg" alt="" /></a>
+    <!-- <a href="#" style="display: none;" ><img src="modules/DDLX_Slider_Free/images/4.jpg" alt="" /></a> -->
     </div>
     <div> 
      <img src="modules/DDLX_Slider_Free/images/prev.png" alt="" id="arrow_left" />

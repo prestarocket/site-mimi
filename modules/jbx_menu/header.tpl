@@ -1,6 +1,6 @@
 
         <!-- MODULE JBX_MENU -->
-        <link rel="stylesheet" type="text/css" href="{$menu.path}css/superfish-modified.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="{$menu.path}css/superfish-modified.css?v=1" media="screen" />
 <!--        <link rel="stylesheet" type="text/css" href="{$menu.path}cache/menu.css" media="screen" />  -->
         <link rel="stylesheet" type="text/css" href="/css/jquery.autocomplete.css" />
         <script type="text/javascript" src="{$menu.path}js/hoverIntent.js"></script>

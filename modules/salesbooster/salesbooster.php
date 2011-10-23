@@ -165,6 +165,8 @@ class Salesbooster extends Module{
                         $products = Db::getInstance()->ExecuteS($sql);
 
                         foreach($products as $product){                  
+			    
+			    set_time_limit(30);
 
                             // lignes de produits
                             $Product = new Product($product['id_product']);
@@ -238,7 +240,7 @@ class Salesbooster extends Module{
                             // Shopzilla
                             //----------------
                             $this->build_line(@$order_fields[26],$special_offer);
-                            $this->build_line(@$order_fields[27],''); // réserve
+                            $this->build_line(@$order_fields[27],substr($product['name'],0,100)); // réserve
                             $this->build_line(@$order_fields[28],''); // enchère
                             $this->build_line(@$order_fields[29],''); // réserve
                             $this->build_line(@$order_fields[30],''); // réserve
@@ -414,8 +416,11 @@ class Salesbooster extends Module{
                                         }
                                         $list = rtrim($list,', '); // description
 
-                                        $this->line_combination = array(); // vide la ligne
-                                        //----------------
+					$this->line_combination = array(); // vide la ligne
+                                        
+					set_time_limit(30);
+					
+					//----------------
                                         // Leguide
                                         //----------------
                                         $this->build_line_combination(@$order_fields[0],'');
@@ -478,7 +483,7 @@ class Salesbooster extends Module{
                                         // Shopzilla
                                         //----------------
                                         $this->build_line_combination(@$order_fields[26],$special_offer);
-                                        $this->build_line_combination(@$order_fields[27],''); // réserve
+                                        $this->build_line_combination(@$order_fields[27],substr($product['name'],0,100)); // réserve
                                         $this->build_line_combination(@$order_fields[28],''); // enchère
                                         $this->build_line_combination(@$order_fields[29],''); // réserve
                                         $this->build_line_combination(@$order_fields[30],''); // réserve
