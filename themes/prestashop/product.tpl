@@ -86,9 +86,9 @@ var fieldRequired = '{l s='Please fill all required fields' js=1}';
 
 {include file=$tpl_dir./breadcrumb.tpl}
 
-<div id="primary_block" class="clearfix">
+<div id="primary_block" class="clearfix" itemscope itemtype="http://schema.org/Product">
 
-	<h1>{$product->name|escape:'htmlall':'UTF-8'}</h1>
+	<h1><span itemprop="name">{$product->name|escape:'htmlall':'UTF-8'}</span></h1>
 	{if $confirmation}
 	<p class="confirmation">
 		{$confirmation}
@@ -100,7 +100,7 @@ var fieldRequired = '{l s='Please fill all required fields' js=1}';
 		<!-- product img-->
 		<div id="image-block">
 		{if $have_image}
-				<img src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large')}" {if $jqZoomEnabled}class="jqzoom" alt="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'thickbox')}"{else} title="{$product->name|escape:'htmlall':'UTF-8'}" alt="{$product->name|escape:'htmlall':'UTF-8'}" {/if} id="bigpic"/>
+				<img itemprop="image" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large')}" {if $jqZoomEnabled}class="jqzoom" alt="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'thickbox')}"{else} title="{$product->name|escape:'htmlall':'UTF-8'}" alt="{$product->name|escape:'htmlall':'UTF-8'}" {/if} id="bigpic"/>
 		{else}
 			<img src="{$img_prod_dir}{$lang_iso}-default-large.jpg" alt="" title="{$product->name|escape:'htmlall':'UTF-8'}" />
 		{/if}
@@ -141,7 +141,7 @@ var fieldRequired = '{l s='Please fill all required fields' js=1}';
 		{if $product->description_short OR $packItems|@count > 0}
 		<div id="short_description_block">
 			{if $product->description_short}
-				<div id="short_description_content" class="rte align_justify">{$product->description_short}</div>
+				<div id="short_description_content" class="rte align_justify" itemprop="description">{$product->description_short}</div>
 			{/if}
 			{if $product->description}
 			<p class="buttons_bottom_block"><a href="javascript:{ldelim}{rdelim}" class="button">{l s='More details'}</a></p>
@@ -185,7 +185,7 @@ var fieldRequired = '{l s='Please fill all required fields' js=1}';
 			</p>
 
 			<!-- prices -->
-			<p class="price">
+			<p class="price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 				{if $product->on_sale}
 					<img src="{$img_dir}onsale_{$lang_iso}.gif" alt="{l s='On sale'}" class="on_sale_img"/>
 					<span class="on_sale">{l s='On sale!'}</span>
@@ -195,15 +195,14 @@ var fieldRequired = '{l s='Please fill all required fields' js=1}';
 				<br />
 				<span class="our_price_display">
 				{if !$priceDisplay || $priceDisplay == 2}
-					<span id="our_price_display">{convertPrice price=$product->getPrice(true, $smarty.const.NULL)}</span>
+					<span id="our_price_display" itemprop="price">{convertPrice price=$product->getPrice(true, $smarty.const.NULL)}</span>
 						{if $tax_enabled}{l s='tax incl.'}{/if}
 				{/if}
 				{if $priceDisplay == 1}
-					<span id="our_price_display">{convertPrice price=$product->getPrice(false, $smarty.const.NULL)}</span>
+					<span id="our_price_display" itemprop="price">{convertPrice price=$product->getPrice(false, $smarty.const.NULL)}</span>
 						{if $tax_enabled}{l s='tax excl.'}{/if}
 				{/if}
-				</span>
-				{if $priceDisplay == 2}
+				</span>				{if $priceDisplay == 2}
 					<br />
 					<span id="pretaxe_price"><span id="pretaxe_price_display">{convertPrice price=$product->getPrice(false, $smarty.const.NULL)}</span>&nbsp;{l s='tax excl.'}</span>
 				{/if}
@@ -262,7 +261,7 @@ var fieldRequired = '{l s='Please fill all required fields' js=1}';
 			<p id="availability_statut"{if ($product->quantity == 0 && !$product->available_later) OR ($product->quantity != 0 && !$product->available_now)} style="display:none;"{/if}>
 				<span id="availability_label">{l s='Availability:'}</span>
 				<span id="availability_value"{if $product->quantity == 0} class="warning-inline"{/if}>
-					{if $product->quantity == 0}{if $allow_oosp}{$product->available_later}{else}{l s='This product is no longer in stock'}{/if}{else}{$product->available_now}{/if}
+					{if $product->quantity == 0}{if $allow_oosp}{$product->available_later}{else}{l s='This product is no longer in stock'}{/if}{else}{$product->available_now}<link itemprop="availability" href="http://schema.org/InStock" />{/if}
 				</span>
 			</p>
 

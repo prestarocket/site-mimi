@@ -177,14 +177,14 @@ h1 {
 	background: transparent;
 	height: 21px
 }
-h1 span {
+/* h1 span {
 	font-size: 0.9em;
 	text-transform: none;
 	font-weight: normal;
 	font-style: italic;
 	color: #374853;
 	margin-left: 1em
-}
+} */
 h2 {
 	font-size: 1.1em;
 	line-height: 1.6em;
