@@ -17,8 +17,8 @@
 </script>
 {if $comments}
 	{if $criterions|@count > 0}
-		<h2>{l s='Average grade' mod='productcomments'}</h2>
-		<div style="float: left">
+		<h2 itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">{l s='Average grade' mod='productcomments'} <span itemprop="ratingValue"> {$averageTotal|round} </span><span>-</span><span itemprop="reviewCount">{$comments|@count}</span><span>{l s='Comments' mod='productcomments'}</span>  </h2>
+		<div style="float: left" >
 			{l s='Average' mod='productcomments'}:<br />
 			{section loop=6 step=1 start=1 name=average}
 				<input class="auto-submit-star" disabled="disabled" type="radio" name="average" {if $averageTotal|round neq 0 and $smarty.section.average.index eq $averageTotal|round}checked="checked"{/if} />
@@ -46,7 +46,7 @@
 			<tbody>
 			{foreach from=$comments item=comment}
 				{if $comment.content}
-				<tr>
+				<tr class="comment">
 					<td style="vertical-align: top">
 						{dateFormat date=$comment.date_add|escape:'html':'UTF-8' full=0}
 						{$comment.firstname|escape:'html':'UTF-8'} {$comment.lastname|truncate:1:'...'|escape:'htmlall':'UTF-8'}.
