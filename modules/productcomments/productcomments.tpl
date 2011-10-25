@@ -17,7 +17,7 @@
 </script>
 {if $comments}
 	{if $criterions|@count > 0}
-		<h2 itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">{l s='Average grade' mod='productcomments'} <span itemprop="ratingValue"> {$averageTotal|round} </span><span>-</span><span itemprop="reviewCount">{$comments|@count}</span><span>{l s='Comments' mod='productcomments'}</span>  </h2>
+		<h2 itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">{l s='Average grade' mod='productcomments'} <span itemprop="ratingValue"> {$averageTotal|round}</span><span>/5 -</span><span itemprop="reviewCount">{$comments|@count}</span><span>{l s='Comments' mod='productcomments'}</span>  </h2>
 		<div style="float: left" >
 			{l s='Average' mod='productcomments'}:<br />
 			{section loop=6 step=1 start=1 name=average}
@@ -46,13 +46,16 @@
 			<tbody>
 			{foreach from=$comments item=comment}
 				{if $comment.content}
-				<tr class="comment">
+				<tr class="comment" itemprop="reviews" itemscope itemtype="http://schema.org/Review">
 					<td style="vertical-align: top">
-						{dateFormat date=$comment.date_add|escape:'html':'UTF-8' full=0}
-						{$comment.firstname|escape:'html':'UTF-8'} {$comment.lastname|truncate:1:'...'|escape:'htmlall':'UTF-8'}.
+						<meta itemprop="datePublished" content="{$comment.date_add|date_format:"%Y-%m-%d"}">{dateFormat date=$comment.date_add|escape:'html':'UTF-8' full=0}
+						<span itemprop="author">{$comment.firstname|escape:'html':'UTF-8'} {$comment.lastname|truncate:1:'...'|escape:'htmlall':'UTF-8'}</span>.
 					</td>
-					<td style="vertical-align: top">
+					<td style="vertical-align: top"  itemprop="description">
 						{$comment.content|escape:'html':'UTF-8'|nl2br}
+					</td>
+					<td style="vertical-align: top" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+						<span itemprop="ratingValue">{$comment.grade}</span>/<span itemprop="bestRating">5</span>
 					</td>
 				</tr>
 				{/if}

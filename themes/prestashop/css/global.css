@@ -2397,6 +2397,11 @@ div.star_hover a, div.star a:hover { background-position: 0 -32px }
 }
 #page .rte { background: transparent none repeat scroll 0 0 }
 
+tbody {
+    background: white;
+    color: #5A4B35; 
+}
+
 /* module paypalapi */
 .paypalapi_about { text-align: justify }
 .paypalapi_about ul { padding-left: 20px }
