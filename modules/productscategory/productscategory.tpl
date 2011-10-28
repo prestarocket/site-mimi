@@ -15,7 +15,7 @@
 				<img src="{$link->getImageLink($categoryProduct.link_rewrite, $categoryProduct.id_image, 'medium')}" alt="{$categoryProduct.name|htmlspecialchars}" />
 			</a><br/>
 			<a href="{$link->getProductLink($categoryProduct.id_product, $categoryProduct.link_rewrite, $categoryProduct.category, $categoryProduct.ean13)}" title="{$categoryProduct.name|htmlspecialchars}">
-			{$categoryProduct.name|truncate:30:'...'|escape:'htmlall':'UTF-8'}
+			{$categoryProduct.name|truncate:90:'...'|escape:'htmlall':'UTF-8'}
 			</a>
 		</li>
 		{/foreach}
