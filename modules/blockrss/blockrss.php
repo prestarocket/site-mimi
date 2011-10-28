@@ -24,7 +24,7 @@ class Blockrss extends Module
  	{
 		Configuration::updateValue('RSS_FEED_TITLE', $this->l('RSS feed'));
 		Configuration::updateValue('RSS_FEED_NBR', 5);
- 	 	if (parent::install() == false OR $this->registerHook('leftColumn') == false)
+ 	 	if (parent::install() == false OR $this->registerHook('rightColumn') == false)
  	 		return false;
 		return true;
   	}
