@@ -13,7 +13,7 @@
 				<img src="{$orderProduct.image}" alt="{$orderProduct.name|htmlspecialchars}" />
 			</a><br/>
 			<a href="{$orderProduct.link}" title="{$orderProduct.name|htmlspecialchars}">
-			{$orderProduct.name|truncate:15:'...'|escape:'htmlall':'UTF-8'}
+			{$orderProduct.name|truncate:90:'...'|escape:'htmlall':'UTF-8'}
 			</a>
 		</li>
 		{/foreach}
