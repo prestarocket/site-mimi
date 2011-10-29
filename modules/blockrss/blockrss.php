@@ -95,8 +95,7 @@ class Blockrss extends Module
 		$smarty->caching = true;
 		$cache = $smarty->cache_dir . '/blockrss.cache';
 
-		 if (! (file_exists($cache) && $smarty->cache_lifetime > (time() - filemtime($cache))) ) {
-		//if (! (file_exists($cache)) &&  ($smarty->cache_lifetime < 3600*24)) {
+		if (! (file_exists($cache) && $smarty->cache_lifetime > (time() - filemtime($cache))) ) {
 		// Conf
 		$title = strval(Configuration::get('RSS_FEED_TITLE'));
 		$url = strval(Configuration::get('RSS_FEED_URL'));

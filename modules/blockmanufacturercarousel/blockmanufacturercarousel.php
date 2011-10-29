@@ -30,7 +30,7 @@ class BlockManufacturerCarousel extends Module
 
     function install()
     {
-        if (!parent::install() OR !$this->registerHook('leftColumn'))
+        if (!parent::install() OR !$this->registerHook('rightColumn'))
                 return false;
         return true;
     }
@@ -115,6 +115,10 @@ class BlockManufacturerCarousel extends Module
     function hookRightColumn($params)
     {
 		global $smarty, $link;
+		$smarty->caching = true;
+		$cache = $smarty->cache_dir . '/blockmanufacturercarousel.cache';
+
+		if (! (file_exists($cache) && $smarty->cache_lifetime > (time() - filemtime($cache))) ) {
                 $manufacturers = Manufacturer::getManufacturers(true);
                 $new_manufacturer = array();
 		if ($manufacturers)
@@ -127,10 +131,12 @@ class BlockManufacturerCarousel extends Module
                     'timeEffet' => $this->timeEffet,
                     'timeTrans' => $this->timeTrans
                     ));
-                if(count($new_manufacturer)>0  || !$this->disapear)
-                    return $this->display(__FILE__, 'blockmanufacturercarousel.tpl');
-                else
-                    return '';
+		// Create cache file
+		file_put_contents($cache, "this is cache");
+		}
+		$display = $this->display(__FILE__, 'blockmanufacturercarousel.tpl');
+		$smarty->caching = false;
+ 	 	return $display;
     }
 
     function hookLeftColumn($params)

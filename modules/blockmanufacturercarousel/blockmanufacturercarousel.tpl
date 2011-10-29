@@ -25,7 +25,7 @@
 		<li style="padding: 3px 0px 3px 0px;">
                     <table border="0" cellspacing="0" cellpadding="0"><tr><td><a href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)}" title="{l s='More about' mod='blockmanufacturer'} {$manufacturer.name}">
                     <img src="{$img_manu_dir}{$manufacturer.id_manufacturer|escape:'htmlall':'UTF-8'}-medium.jpg" alt="" /></a></td>
-                    <td valign="center"><h3><a href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)}" title="{l s='More about' mod='blockmanufacturer'} {$manufacturer.name}">{$manufacturer.name}</a></h3></td></tr></table></li>
+                   <!--  <td valign="center"><h3><a href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)}" title="{l s='More about' mod='blockmanufacturer'} {$manufacturer.name}">{$manufacturer.name}</a></h3></td> --> </tr></table></li> 
 		{/if}
             {/foreach}
         </ul>

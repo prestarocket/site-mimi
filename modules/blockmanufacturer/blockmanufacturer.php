@@ -26,7 +26,10 @@ class BlockManufacturer extends Module
     function hookLeftColumn($params)
     {
 		global $smarty, $link;
+		$smarty->caching = true;
+		$cache = $smarty->cache_dir . '/blockmanufacturer.cache';
 		
+		if (! (file_exists($cache) && $smarty->cache_lifetime > (time() - filemtime($cache))) ) {
 		$smarty->assign(array(
 			'manufacturers' => Manufacturer::getManufacturers(),
 			'link' => $link,
@@ -34,7 +37,10 @@ class BlockManufacturer extends Module
 			'text_list_nb' => Configuration::get('MANUFACTURER_DISPLAY_TEXT_NB'),
 			'form_list' => Configuration::get('MANUFACTURER_DISPLAY_FORM'),
 		));
-		$smarty->caching = true;
+		// Create cache file
+		file_put_contents($cache, "this is cache");
+                }
+		
 		$display = $this->display(__FILE__, 'blockmanufacturer.tpl');
 		$smarty->caching = false;
 		return $display;
