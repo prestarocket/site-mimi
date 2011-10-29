@@ -1,5 +1,5 @@
 <!-- MODULE DDLX footer-->
-<link href="{$base_dir}modules/ddlx_xtreme_footer/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="{$base_dir_ssl}modules/ddlx_xtreme_footer/style.css" rel="stylesheet" type="text/css" media="all" />
 
 <div id="footer">
 <ul class="colonne">
@@ -42,7 +42,7 @@
 <a class="addthis_button_google"></a>
 <a class="addthis_button_twitter"></a>
 </div>
-<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4b2bf29f09caa994"></script> 
+<script type="text/javascript" src="https://s7.addthis.com/js/250/addthis_widget.js#username=xa-4b2bf29f09caa994"></script> 
 <!-- Il est strictement interdit d'enlever ceci sous peine de poursuite pour la version gratuite -->
 </ul>
 <!-- -->

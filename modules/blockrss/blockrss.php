@@ -92,7 +92,9 @@ class Blockrss extends Module
 	function hookLeftColumn($params)
 	{
 		global $smarty;
-		
+		$smarty->caching = true;
+
+		if(!$smarty->is_cached(__FILE__, 'blockrss.tpl')) {
 		// Conf
 		$title = strval(Configuration::get('RSS_FEED_TITLE'));
 		$url = strval(Configuration::get('RSS_FEED_URL'));
@@ -111,7 +113,11 @@ class Blockrss extends Module
 			'title' => ($title ? $title : $this->l('RSS feed')),
 			'rss_links' => $rss_links
 		));
- 	 	return $this->display(__FILE__, 'blockrss.tpl');
+                }		
+
+		$display =  $this->display(__FILE__, 'blockrss.tpl');
+		$smarty->caching = false;
+ 	 	return $display;
  	}
 
 	function hookRightColumn($params)
