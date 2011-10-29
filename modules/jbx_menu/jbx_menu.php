@@ -76,6 +76,10 @@ class jbx_menu extends Module
 	public function hookheader($params)
 	{
 		global $smarty, $cookie;
+		$smarty->caching = true;
+		$cache = $smarty->cache_dir . '/jbx_menu.cache';
+
+		if (! (file_exists($cache) && $smarty->cache_lifetime > (time() - filemtime($cache))) ) {
 		$vars = array(
 			'search_ssl' => (int)(isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off'),
 			'path' => $this->_path,
@@ -96,7 +100,11 @@ class jbx_menu extends Module
 			'hook' => isset($parameters['preview']) ? 'menu' : Configuration::get('MENU_HOOK'),
 		);
 		$smarty->assign('menu', $vars);
-		$smarty->caching = true;
+
+		// Create cache file
+		file_put_contents($cache, "this is cache");
+                }		
+
 		$display = $this->display(__FILE__, 'header.tpl');
 		$smarty->caching = false;
 		return $display;
