@@ -4,7 +4,7 @@ require_once(_PS_SMARTY_DIR_.'Smarty.class.php');
 $smarty = new Smarty();
 $smarty->template_dir 	= _PS_THEME_DIR_.'tpl';
 $smarty->compile_dir 	= _PS_SMARTY_DIR_.'compile';
-$smarty->cache_dir 		= _PS_SMARTY_DIR_.'cache';
+$smarty->cache_dir 	= _PS_SMARTY_DIR_.'cache';
 $smarty->config_dir 	= _PS_SMARTY_DIR_.'configs';
 $smarty->caching 		= false;
 $smarty->force_compile	= false; // to pass "false" when put into production

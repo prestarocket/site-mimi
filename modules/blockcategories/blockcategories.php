@@ -89,6 +89,11 @@ class BlockCategories extends Module
 	{
 		global $smarty, $cookie;
 
+
+		$smarty->caching = true;
+		$cache = $smarty->cache_dir . '/blockcategories.cache';
+		 if (! (file_exists($cache) && $smarty->cache_lifetime > (time() - filemtime($cache))) ) {
+
 		/*  ONLY FOR THEME OLDER THAN v1.0 */
 		global $link;
 		$smarty->assign(array(
@@ -149,8 +154,10 @@ class BlockCategories extends Module
 			$smarty->assign('branche_tpl_path', _PS_MODULE_DIR_.'blockcategories/category-tree-branch.tpl');
 		$smarty->assign('isDhtml', $isDhtml);
 		/* /ONLY FOR THEME OLDER THAN v1.0 */
+		// Create cache file
+		file_put_contents($cache, "this is cache");
+                }		
 
-		$smarty->caching = true;
 		$display = $this->display(__FILE__, 'blockcategories.tpl', $_GET['id_category'].'patternalanoix'.$_GET['id_product']);
 		$smarty->caching = false;
 		return $display;
