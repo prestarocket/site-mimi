@@ -1,5 +1,5 @@
 <!-- MODULE DDLX footer-->
-<link href="{$base_dir_ssl}modules/ddlx_xtreme_footer/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="{$base_dir}modules/ddlx_xtreme_footer/style.css" rel="stylesheet" type="text/css" media="all" />
 
 <div id="footer">
 <ul class="colonne">
