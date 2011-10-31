@@ -32,8 +32,9 @@ class lilibio_footer extends Module
 
   public function hookFooter($params) {
     global $smarty;
-    $smarty->caching = false;
+    $smarty->caching = true;
     $result = $this->display(__FILE__, 'lilibio_footer.tpl');
+    $smarty->caching = false;
     return $result;
   }
 
