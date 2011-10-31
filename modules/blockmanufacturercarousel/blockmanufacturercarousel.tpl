@@ -12,7 +12,7 @@
 	overflow:hidden;
 	}
 </style>
-<script src="{/literal}{$content_dir}{literal}modules/blockmanufacturercarousel/js/olcSlider.js" type="text/javascript"></script>
+<script src="/modules/blockmanufacturercarousel/js/olcSlider.js" type="text/javascript"></script>
 {/literal}
 <div id="special_block_right" class="block products_block exclusive blockspecials">
 	<h4><a href="{$base_dir}manufacturer.php" title="{l s='Manufacturers' mod='blockmanufacturercarousel' }">{l s='Manufacturers' mod='blockmanufacturercarousel'}</a></h4>
@@ -24,7 +24,7 @@
 		{if $manufacturer.nb_products > 0}
 		<li style="padding: 3px 0px 3px 0px;">
                     <table border="0" cellspacing="0" cellpadding="0"><tr><td><a href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)}" title="{l s='More about' mod='blockmanufacturer'} {$manufacturer.name}">
-                    <img src="{$img_manu_dir}{$manufacturer.id_manufacturer|escape:'htmlall':'UTF-8'}-medium.jpg" alt="" /></a></td>
+                    <img src="/img/m/{$manufacturer.id_manufacturer|escape:'htmlall':'UTF-8'}-medium.jpg" alt="" /></a></td>
                    <!--  <td valign="center"><h3><a href="{$link->getmanufacturerLink($manufacturer.id_manufacturer, $manufacturer.link_rewrite)}" title="{l s='More about' mod='blockmanufacturer'} {$manufacturer.name}">{$manufacturer.name}</a></h3></td> --> </tr></table></li> 
 		{/if}
             {/foreach}
