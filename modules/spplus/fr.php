@@ -6,9 +6,8 @@ $_MODULE['<{spplus}prestashop>payment_return_83ad680d9978b5c06dc859fda9f9f1da'] 
 $_MODULE['<{spplus}prestashop>payment_return_75fbf512d744977d62599cc3f0ae2bb4'] = 'est terminée.';
 $_MODULE['<{spplus}prestashop>spplus_be7c71f292d54b05d7bd6c9ad5b50620'] = 'Caisse d\'épargne - SP Plus';
 $_MODULE['<{spplus}prestashop>spplus_01ad6cfc3393ca03a6c65cb7281b5298'] = 'Permet à vos clients de payer via SP Plus';
-$_MODULE['<{spplus}prestashop>spplus_c888438d14855d7d96a2724ee9c306bd'] = 'Configuration enregistrée';
-$_MODULE['<{spplus}prestashop>spplus_738a1d4da1b5dc5883063ec9856b637b'] = 'Erreur de configuration';
 $_MODULE['<{spplus}prestashop>spplus_f4d1ea475eaa85102e2b4e6d95da84bd'] = 'Confirmation';
+$_MODULE['<{spplus}prestashop>spplus_c888438d14855d7d96a2724ee9c306bd'] = 'Configuration enregistrée';
 $_MODULE['<{spplus}prestashop>spplus_8db4f2e2f6890e64a5cd07c9a59c8bb8'] = 'La bibliothèque SPPLUS PECL peut être chargée, vos transactions seront sécurisées.';
 $_MODULE['<{spplus}prestashop>spplus_d0d9ec9828b4018bb097c8afc06cc2d8'] = 'La bibliothèque SPPLUS PECL ne peut pas être chargée, merci de remplir le champ URL HMAC.';
 $_MODULE['<{spplus}prestashop>spplus_795acb9a0c89791314d3032fe65eeb92'] = 'Clé marchand';

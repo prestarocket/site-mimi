@@ -68,6 +68,8 @@ $_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_dbaebcdbe1b5056aa6644ab46df07b69
 $_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_c0dd142846cddf9b2f784487164a94b4'] = 'Montrez les images des éléments de votre menu.';
 $_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_defa05fbad39c5267672383a55021b25'] = 'Point d\'accroche ?';
 $_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_bf4f7d9f57e43d4f4219dccc8aba282d'] = 'Choisissez le meilleur point d\'accroche pour attacher votre menu à votre thème.';
+$_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_513726237ba4006b4208652193cbfbb3'] = 'Utiliser le cache ?';
+$_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_3b92852381545d147cb08b8c435e41fe'] = 'Utiliser le cache pour de meilleurs performances';
 $_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_9dffbf69ffba8bc38bc4e01abf4b1675'] = 'Texte';
 $_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_1d83718c9d641b714e5f0f777c759b24'] = 'Changez la couleur des textes des éléments de votre menu.';
 $_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_9d5ed678fe57bcca610140957afab571'] = 'G';
@@ -109,15 +111,11 @@ $_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_69ee1afc9b3d02e53d9f733c1993b568
 $_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_c49f7e9be9ea898843f8a1e997b0a364'] = 'Chargez une image de fond pour votre menu';
 $_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_1aa8ff98496fb74206f632f8c8ce796e'] = 'Image de fond (survol)';
 $_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_1d4f7efcd211c70f0bb28769e321abdd'] = 'Chargez une image de fond (survol) pour votre menu';
+$_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_85e7bf3c327e295a28c2a51e1b27569c'] = 'Durée du cache';
+$_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_52e1583e4805def74113c402b61cc262'] = 'Définir une valeur d\'actualisation du cache en secondes.';
 $_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_356d4c53e7100eaa6bc44ce15b919e69'] = 'Enregistrer les options';
 $_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_fa8c142d02ba6e79ffb04fde62303858'] = 'Réalisé par Web-Scope';
 $_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_e01a46b42340c444268fc0474e2769cf'] = 'Auteur du projet :';
 $_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_3ff8fa60506608c6c29235f333573891'] = 'Contact :';
-$_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_b61541208db7fa7dba42c85224405911'] = 'Menu';
-$_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_e3794ea5d66f5dee216d6128b9613b21'] = 'Ajouter un nouveau menu dans votre boutique.';
-$_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_513726237ba4006b4208652193cbfbb3'] = 'Utiliser le cache ?';
-$_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_3b92852381545d147cb08b8c435e41fe'] = 'Utiliser le cache pour de meilleurs performances';
-$_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_85e7bf3c327e295a28c2a51e1b27569c'] = 'Durée du cache';
-$_MODULE['<{jbx_menu}prestashop>AdminModuleMenu_52e1583e4805def74113c402b61cc262'] = 'Définir une valeur d\'actualisation du cache en secondes.';
 $_MODULE['<{jbx_menu}prestashop>jbx_menu_b61541208db7fa7dba42c85224405911'] = 'Menu';
 $_MODULE['<{jbx_menu}prestashop>jbx_menu_e3794ea5d66f5dee216d6128b9613b21'] = 'Ajouter un nouveau menu dans votre boutique.';
