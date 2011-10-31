@@ -91,10 +91,11 @@ div.foot_lili {
     clear: both;
     padding: 0.5em 0;
     height: 120px;
+    margin-left: 15px;
 }
 
 ul.footer_lili {
-    width: 130px;
+    width: 150px;
     float: left;
     margin: 10 px;
     padding: 10px 30px 10px 50px;
@@ -104,8 +105,6 @@ ul.footer_lili {
 ul#pay_lili {
     float: left;
     margin-right: 100 px;
-    margin-left:  20px;
-    margin-top:   30px;
 }
 
 li.raw_title {
