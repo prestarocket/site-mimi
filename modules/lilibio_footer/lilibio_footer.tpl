@@ -5,7 +5,7 @@
 <div class="foot_lili"> 
 <ul id="pay_lili" class="footer_lili" >
 <li class="raw_title"> <img src="/modules/lilibio_footer/img/lock.png"> {l s='Paiement sécurisé' mod='lilibio_footer.tpl'} </li>
-<li class="raw"      > <a href="{$base_dir}content/8-paiement"><img src="{$base_dir}modules/lilibio_footer/img/paiement.gif"/></a> </li>
+<li class="raw"      > <a href="{$base_dir}content/8-paiement"><img src="/modules/lilibio_footer/img/paiement.gif"/></a> </li>
 </ul>
 
 <ul class="footer_lili">
