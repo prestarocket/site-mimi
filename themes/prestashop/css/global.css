@@ -2451,3 +2451,8 @@ tbody {
 }
 
 
+/* cart_summary */
+
+#cart_summary tfoot {
+    background: white;
+}
