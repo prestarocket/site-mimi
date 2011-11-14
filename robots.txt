@@ -5,7 +5,6 @@ Disallow: /classes/
 Disallow: /config/
 Disallow: /download/
 Disallow: /mails/
-Disallow: /modules/
 Disallow: /translations/
 Disallow: /tools/
 Disallow: /lang-fr/
