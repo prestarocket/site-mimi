@@ -14,13 +14,12 @@
 }
 
 body {
-/*	background: #8faf7c;*/
 	font-size: 11px;
 	font-family: Verdana, Arial, Helvetica, Sans-Serif;
 	color:  #5A4B35;
 	text-align: center;
-	background: #F0F0F0;
-
+	/* background: #F0F0F0; */
+	background: #64231B url('/themes/prestashop/img/bandeau-noel.jpg') no-repeat scroll 105% 5%;
 }
 
 /* Useful */
