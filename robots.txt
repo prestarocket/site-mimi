@@ -40,7 +40,6 @@ Disallow: /search.php
 Disallow: /statistics.php
 Disallow: /*orderby=
 Disallow: /*orderway=
-Disallow: /*p=
 Disallow: /*tag=
 Disallow: /*id_currency=
 Disallow: /*search_query=
@@ -49,7 +48,6 @@ Disallow: /*back=
 Disallow: /*utm_source=
 Disallow: /*utm_medium=
 Disallow: /*utm_campaign=
-Disallow: /*n=
 
 # Sitemap
 Sitemap: http://www.lilibio.com/sitemap.xml
