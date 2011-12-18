@@ -85,8 +85,8 @@ var fieldRequired = '{l s='Please fill all required fields' js=1}';
 </script>
 
 {include file=$tpl_dir./breadcrumb.tpl}
-
-<div id="primary_block" class="clearfix" itemscope itemtype="http://schema.org/Product">
+<div itemscope itemtype="http://schema.org/Product">
+<div id="primary_block" class="clearfix" >
 
 	<h1><span itemprop="name">{$product->name|escape:'htmlall':'UTF-8'}</span></h1>
 	{if $confirmation}
@@ -393,6 +393,7 @@ var fieldRequired = '{l s='Please fill all required fields' js=1}';
 	{/if}
 	{$HOOK_PRODUCT_TAB_CONTENT}
 	</div>
+</div>
 </div>
 {/if}
 
