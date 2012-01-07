@@ -78,7 +78,7 @@ class jbx_menu extends Module
 		global $smarty, $cookie;
 		$smarty->caching = true;
 
-		if ($this->iscached(__FILE__, 'header.tpl')) {
+		if (!$this->iscached(__FILE__, 'header.tpl')) {
 		$vars = array(
 			'search_ssl' => (int)(isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off'),
 			'path' => $this->_path,

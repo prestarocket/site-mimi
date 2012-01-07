@@ -93,9 +93,8 @@ class Blockrss extends Module
 	{
 		global $smarty;
 		$smarty->caching = true;
-		$cache = $smarty->cache_dir . '/blockrss.cache';
 
-		if (! (file_exists($cache) && $smarty->cache_lifetime > (time() - filemtime($cache))) ) {
+		if (!$this->iscached(__FILE__, 'blockrss.tpl')){
 		// Conf
 		$title = strval(Configuration::get('RSS_FEED_TITLE'));
 		$url = strval(Configuration::get('RSS_FEED_URL'));
@@ -115,8 +114,6 @@ class Blockrss extends Module
 			'rss_links' => $rss_links
 		));
 
-		// Create cache file
-		file_put_contents($cache, "this is cache");
                 }		
 
 		$display =  $this->display(__FILE__, 'blockrss.tpl');

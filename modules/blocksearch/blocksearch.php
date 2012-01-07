@@ -59,8 +59,13 @@ class BlockSearch extends Module
 
 	function hookHeader($params)
 	{
-		if (Configuration::get('PS_SEARCH_AJAX'))
-			return $this->display(__FILE__, 'header.tpl');
+	  global $smarty;
+	  if (Configuration::get('PS_SEARCH_AJAX')){
+	    $smarty->caching = true;
+	    $display = $this->display(__FILE__, 'header.tpl');
+	    $smarty->caching = false;
+	    return $display;
+	  }
 	}
 	
 	private function _disabledSearchAjax()

@@ -89,17 +89,8 @@ class BlockCategories extends Module
 	{
 		global $smarty, $cookie;
 
-
 		$smarty->caching = true;
-		$other_lifetime = $smarty->cache_lifetime;
-		$smarty->cache_lifetime = 7*24*60*60;
-		$id_lang = (int)($params['cookie']->id_lang);
-		$id_product = $_GET['id_product'];
-		$id_category = $_GET['id_category'];
-
-		$smartyCacheId = 'blockcategories|'.$id_lang.'_'.$id_product.'_'.$id_category;
-
-		if (!$this->iscached(__FILE__, 'blockcategories.tpl', $smartyCacheId) ) { 
+		if (!$this->iscached(__FILE__, 'blockcategories.tpl') ) { 
 		/*  ONLY FOR THEME OLDER THAN v1.0 */
 		global $link;
 		$smarty->assign(array(
@@ -134,6 +125,7 @@ class BlockCategories extends Module
 		$blockCategTree = $this->getTree($resultParents, $resultIds, Configuration::get('BLOCK_CATEG_MAX_DEPTH'));
 		$isDhtml = (Configuration::get('BLOCK_CATEG_DHTML') == 1 ? true : false);
 
+		if(0) {   /* no specific tree for category or product */
 		if (isset($_GET['id_category']))
 		{
 			$cookie->last_visited_category = intval($_GET['id_category']);
@@ -149,7 +141,7 @@ class BlockCategories extends Module
 			}
 			$smarty->assign('currentCategoryId', intval($cookie->last_visited_category));
 		}	
-
+		}
 		$smarty->assign('blockCategTree', $blockCategTree);
 		
 		if (file_exists(_PS_THEME_DIR_.'modules/blockcategories/blockcategories.tpl'))
@@ -160,9 +152,8 @@ class BlockCategories extends Module
 		/* /ONLY FOR THEME OLDER THAN v1.0 */
                 }		 
 
-		$display = $this->display(__FILE__, 'blockcategories.tpl', $smartyCacheId);
+		$display = $this->display(__FILE__, 'blockcategories.tpl');
 		$smarty->caching = false;
-		$smarty->cache_lifetime = $other_lifetime;
 		return $display;
 	}
 

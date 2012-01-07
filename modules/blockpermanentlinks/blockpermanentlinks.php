@@ -31,7 +31,13 @@ class BlockPermanentLinks extends Module
 	*/
 	function hookTop($params)
 	{
-		return $this->display(__FILE__, 'blockpermanentlinks-header.tpl');
+	  global $smarty;
+	  
+	  $smarty->caching = true;
+	  $display = $this->display(__FILE__, 'blockpermanentlinks-header.tpl');
+	  $smarty->caching = false;
+	  return $display;
+
 	}
 
 	/**
