@@ -91,7 +91,8 @@ class BlockCategories extends Module
 
 
 		$smarty->caching = true;
-		
+		$other_lifetime = $smarty->cache_lifetime;
+		$smarty->cache_lifetime = 7*24*60*60;
 		$id_lang = (int)($params['cookie']->id_lang);
 		$id_product = $_GET['id_product'];
 		$id_category = $_GET['id_category'];
@@ -157,10 +158,11 @@ class BlockCategories extends Module
 			$smarty->assign('branche_tpl_path', _PS_MODULE_DIR_.'blockcategories/category-tree-branch.tpl');
 		$smarty->assign('isDhtml', $isDhtml);
 		/* /ONLY FOR THEME OLDER THAN v1.0 */
-                 }		 
+                }		 
 
 		$display = $this->display(__FILE__, 'blockcategories.tpl', $smartyCacheId);
 		$smarty->caching = false;
+		$smarty->cache_lifetime = $other_lifetime;
 		return $display;
 	}
 
