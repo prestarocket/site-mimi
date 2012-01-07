@@ -22,7 +22,7 @@
     	<ul style="">
 		{foreach from=$products item=product name=products}
 		<li style="padding: 3px 0px 3px 0px;">
-                    <a style="float:left" href="{$product.link}"><img src="/img/p/{$product.id_image}-medium.jpg" alt="{$product.legend|escape:htmlall:'UTF-8'}" title="{$product.name|escape:htmlall:'UTF-8'}" /></a>
+                    <a style="float:left" href="{$product.link}"><img src="{$img_ps_dir}/p/{$product.id_image}-medium.jpg" alt="{$product.legend|escape:htmlall:'UTF-8'}" title="{$product.name|escape:htmlall:'UTF-8'}" /></a>
                     <div><h5><a href="{$product.link}" title="{$product.name|escape:htmlall:'UTF-8'}">{$product.name|truncate:35|escape:'htmlall':'UTF-8'}</a></h5>
                     <span class="price-discount">{displayWtPrice p=$product.price_without_reduction}</span>
                     {if $product.reduction_percent}<span class="reduction">(-{$product.reduction_percent}%)</span>{/if}
