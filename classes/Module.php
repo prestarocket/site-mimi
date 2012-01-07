@@ -607,7 +607,7 @@ abstract class Module
 		return (array_key_exists(intval($id_hook).'-'.intval($this->id), self::$exceptionsCache) ? self::$exceptionsCache[intval($id_hook).'-'.intval($this->id)] : array());
 	}
 
-	public static function display($file, $template)
+	public static function display($file, $template, $compile_id = null)
 	{
 		global $smarty;
 		$previousTemplate = $smarty->currentTemplate;
@@ -616,12 +616,12 @@ abstract class Module
 		if (Tools::file_exists_cache(_PS_THEME_DIR_.'modules/'.basename($file, '.php').'/'.$template))
 		{
 			$smarty->assign('module_template_dir', _THEME_DIR_.'modules/'.basename($file, '.php').'/');
-			$result = $smarty->fetch(_PS_THEME_DIR_.'modules/'.basename($file, '.php').'/'.$template);
+			$result = $smarty->fetch(_PS_THEME_DIR_.'modules/'.basename($file, '.php').'/'.$template, $compile_id);
 		}
 		elseif (Tools::file_exists_cache(dirname($file).'/'.$template))
 		{
 			$smarty->assign('module_template_dir', __PS_BASE_URI__.'modules/'.basename($file, '.php').'/');
-			$result = $smarty->fetch(dirname($file).'/'.$template);
+			$result = $smarty->fetch(dirname($file).'/'.$template, $compile_id);
 		}
 		else
 			$result = Tools::displayError('No template found');
@@ -629,6 +629,32 @@ abstract class Module
 		return $result;
 	}
 
+	public static function iscached ($file, $template, $compile_id = null)
+	{
+	  global $smarty;
+	  $previousTemplate = $smarty->currentTemplate;
+	  $smarty->currentTemplate = substr(basename($template), 0, -4);
+	  $smarty->assign('module_dir', __PS_BASE_URI__.'modules/'.basename($file, '.php').'/');
+	  if (Tools::file_exists_cache(_PS_THEME_DIR_.'modules/'.basename($file, '.php').'/'.$template))
+	    {
+	      $smarty->assign('module_template_dir', _THEME_DIR_.'modules/'.basename($file, '.php').'/');
+	      echo "THEME DIR";
+	      echo _PS_THEME_DIR_;
+	      $result = $smarty->is_cached(_PS_THEME_DIR_.'modules/'.basename($file, '.php').'/'.$template, $compile_id);
+	    }
+	  elseif (Tools::file_exists_cache(dirname($file).'/'.$template))
+	    {
+	      $smarty->assign('module_template_dir', __PS_BASE_URI__.'modules/'.basename($file, '.php').'/');
+	      $result = $smarty->is_cached(dirname($file).'/'.$template, $compile_id);
+	    }
+	  else
+	    $result = Tools::displayError('No template found');
+	  $smarty->currentTemplate = $previousTemplate;
+	  return $result;
+	}
+
+
+	
 	public static function isInstalled($moduleName)
 	{
 		Db::getInstance()->Execute('SELECT `id_module` FROM `'._DB_PREFIX_.'module` WHERE `name` = \''.pSQL($moduleName).'\'');
