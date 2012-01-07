@@ -91,9 +91,14 @@ class BlockCategories extends Module
 
 
 		$smarty->caching = true;
-		$cache = $smarty->cache_dir . '/blockcategories.cache';
-		 if (! (file_exists($cache) && $smarty->cache_lifetime > (time() - filemtime($cache))) ) {
+		
+		$id_lang = (int)($params['cookie']->id_lang);
+		$id_product = $_GET['id_product'];
+		$id_category = $_GET['id_category'];
 
+		$smartyCacheId = 'blockcategories|'.$id_lang.'_'.$id_product.'_'.$id_category;
+
+		if (!$this->iscached(__FILE__, 'blockcategories.tpl', $smartyCacheId) ) { 
 		/*  ONLY FOR THEME OLDER THAN v1.0 */
 		global $link;
 		$smarty->assign(array(
@@ -128,8 +133,6 @@ class BlockCategories extends Module
 		$blockCategTree = $this->getTree($resultParents, $resultIds, Configuration::get('BLOCK_CATEG_MAX_DEPTH'));
 		$isDhtml = (Configuration::get('BLOCK_CATEG_DHTML') == 1 ? true : false);
 
-		if(0)
-		{
 		if (isset($_GET['id_category']))
 		{
 			$cookie->last_visited_category = intval($_GET['id_category']);
@@ -145,7 +148,7 @@ class BlockCategories extends Module
 			}
 			$smarty->assign('currentCategoryId', intval($cookie->last_visited_category));
 		}	
-		}
+
 		$smarty->assign('blockCategTree', $blockCategTree);
 		
 		if (file_exists(_PS_THEME_DIR_.'modules/blockcategories/blockcategories.tpl'))
@@ -154,11 +157,9 @@ class BlockCategories extends Module
 			$smarty->assign('branche_tpl_path', _PS_MODULE_DIR_.'blockcategories/category-tree-branch.tpl');
 		$smarty->assign('isDhtml', $isDhtml);
 		/* /ONLY FOR THEME OLDER THAN v1.0 */
-		// Create cache file
-		file_put_contents($cache, "this is cache");
-                }		
+                 }		 
 
-		$display = $this->display(__FILE__, 'blockcategories.tpl', $_GET['id_category'].'patternalanoix'.$_GET['id_product']);
+		$display = $this->display(__FILE__, 'blockcategories.tpl', $smartyCacheId);
 		$smarty->caching = false;
 		return $display;
 	}
