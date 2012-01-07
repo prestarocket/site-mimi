@@ -1312,7 +1312,6 @@ div#categories_block_left ul.tree a {
 }
 div#categories_block_left ul.tree a:hover { text-decoration: none }
 div#categories_block_left ul.tree a.selected {
-	color: #488c40;
 	font-weight: bold
 }
 div#categories_block_left span.grower {
