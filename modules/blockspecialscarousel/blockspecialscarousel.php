@@ -104,10 +104,9 @@ class BlockSpecialsCarousel extends Module
     {
 		global $smarty;
                 $smarty->caching = true;
-		$cache = $smarty->cache_dir . '/blockspecialscarroussel.cache';
+		$smartyCacheId = 'blockspecialscarrousel|'.$_SERVER['HTTPS'];
 
-		if (! (file_exists($cache) && $smarty->cache_lifetime > (time() - filemtime($cache))) ) {
-		
+		if (!$this->iscached(__FILE__, 'blockspecialscarousel.tpl', $smartyCacheId) ) { 
                 $products = Product::getPricesDrop(intval($params['cookie']->id_lang));
                 $new_product = array();
 		if ($products)
@@ -118,8 +117,6 @@ class BlockSpecialsCarousel extends Module
                     'timeEffet' => $this->timeEffet,
                     'timeTrans' => $this->timeTrans,
                     'products' => $new_product));
-		// Create cache file
-		file_put_contents($cache, "this is cache");
                 }		
 
 		$display = $this->display(__FILE__, 'blockspecialscarousel.tpl');
