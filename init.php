@@ -1,13 +1,13 @@
 <?php
 
 if (!isset($smarty))
-	exit;
+  exit;
 
 /* Theme is missing or maintenance */
 if (!is_dir(dirname(__FILE__).'/themes/'._THEME_NAME_))
-	die(Tools::displayError('Current theme unavailable. Please check your theme directory name and permissions.'));
+  die(Tools::displayError('Current theme unavailable. Please check your theme directory name and permissions.'));
 elseif (basename($_SERVER['PHP_SELF']) != 'disabled.php' AND !intval(Configuration::get('PS_SHOP_ENABLE')))
-	$maintenance = true;
+  $maintenance = true;
 
 ob_start();
 global $cart, $cookie, $_CONF, $link;
@@ -23,7 +23,7 @@ $cookie = new Cookie('ps');
 
 // Switch language if needed and init cookie language
 if ($iso = Tools::getValue('isolang') AND Validate::isLanguageIsoCode($iso) AND ($id_lang = intval(Language::getIdByIso($iso))))
-	$_GET['id_lang'] = $id_lang;
+  $_GET['id_lang'] = $id_lang;
 	
 Tools::switchLanguage();
 Tools::setCookieLanguage();
@@ -32,15 +32,15 @@ Tools::setCookieLanguage();
 define('_USER_ID_LANG_', intval($cookie->id_lang));
 
 if (isset($_GET['logout']) OR ($cookie->logged AND Customer::isBanned(intval($cookie->id_customer))))
-{
-	$cookie->logout();
-	Tools::redirect(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : NULL);
-}
+  {
+    $cookie->logout();
+    Tools::redirect(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : NULL);
+  }
 elseif (isset($_GET['mylogout']))
-{
- 	$cookie->mylogout();
-	Tools::redirect(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : NULL);
-}
+  {
+    $cookie->mylogout();
+    Tools::redirect(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : NULL);
+  }
 
 $iso = strtolower(Language::getIsoById($cookie->id_lang ? intval($cookie->id_lang) : 1));
 @include(_PS_TRANSLATIONS_DIR_.$iso.'/fields.php');
@@ -50,40 +50,40 @@ $_MODULES = array();
 $currency = Tools::setCurrency();
 
 if (intval($cookie->id_cart))
-{
-	$cart = new Cart(intval($cookie->id_cart));
-	if ($cart->OrderExists())
-		unset($cookie->id_cart, $cart);
-	elseif ($cookie->id_customer != $cart->id_customer OR $cookie->id_lang != $cart->id_lang OR $cookie->id_currency != $cart->id_currency)
-	{
-		if ($cookie->id_customer)
-			$cart->id_customer = intval($cookie->id_customer);
-		$cart->id_lang = intval($cookie->id_lang);
-		$cart->id_currency = intval($cookie->id_currency);
-		$cart->update();
-	}
-}
+  {
+    $cart = new Cart(intval($cookie->id_cart));
+    if ($cart->OrderExists())
+      unset($cookie->id_cart, $cart);
+    elseif ($cookie->id_customer != $cart->id_customer OR $cookie->id_lang != $cart->id_lang OR $cookie->id_currency != $cart->id_currency)
+      {
+	if ($cookie->id_customer)
+	  $cart->id_customer = intval($cookie->id_customer);
+	$cart->id_lang = intval($cookie->id_lang);
+	$cart->id_currency = intval($cookie->id_currency);
+	$cart->update();
+      }
+  }
 
 if (!isset($cart) OR !$cart->id)
-{
-	$cart = new Cart();
-	$cart->id_lang = intval($cookie->id_lang);
+  {
+    $cart = new Cart();
+    $cart->id_lang = intval($cookie->id_lang);
     $cart->id_currency = intval($cookie->id_currency);
-	$cart->id_guest = intval($cookie->id_guest);
+    $cart->id_guest = intval($cookie->id_guest);
     if ($cookie->id_customer)
-	{
+      {
     	$cart->id_customer = intval($cookie->id_customer);
-		$cart->id_address_delivery = intval(Address::getFirstCustomerAddressId($cart->id_customer));
-		$cart->id_address_invoice = $cart->id_address_delivery;
-	}
-	else
-	{
-		$cart->id_address_delivery = 0;
-		$cart->id_address_invoice = 0;
-	}
-}
+	$cart->id_address_delivery = intval(Address::getFirstCustomerAddressId($cart->id_customer));
+	$cart->id_address_invoice = $cart->id_address_delivery;
+      }
+    else
+      {
+	$cart->id_address_delivery = 0;
+	$cart->id_address_invoice = 0;
+      }
+  }
 if (!$cart->nbProducts())
-	$cart->id_carrier = NULL;
+  $cart->id_carrier = NULL;
 
 $ps_language = new Language(intval($cookie->id_lang));
 setlocale(LC_COLLATE, strtolower($ps_language->iso_code).'_'.strtoupper($ps_language->iso_code).'.UTF-8');
@@ -91,9 +91,9 @@ setlocale(LC_CTYPE, strtolower($ps_language->iso_code).'_'.strtoupper($ps_langua
 setlocale(LC_NUMERIC, 'en_EN.UTF-8');
 
 if (is_object($currency))
-	$smarty->ps_currency = $currency;
+  $smarty->ps_currency = $currency;
 if (is_object($ps_language))
-	$smarty->ps_language = $ps_language;
+  $smarty->ps_language = $ps_language;
 
 $smarty->register_function('dateFormat', array('Tools', 'dateFormat'));
 $smarty->register_function('productPrice', array('Product', 'productPrice'));
@@ -124,91 +124,100 @@ Product::initPricesComputation();
 $priceDisplay = Product::getTaxCalculationMethod();
 
 if (!Configuration::get('PS_THEME_V11'))
-{
-	define('_PS_BASE_URL_SSL_', $protocol_ssl.$server_host);
-	$smarty->assign(array(
-		'base_dir' => _PS_BASE_URL_.__PS_BASE_URI__,
-		'base_dir_ssl' => $protocol_link.$server_host.__PS_BASE_URI__,
-		'content_dir' => $protocol_content.$server_host.__PS_BASE_URI__,
-		'img_ps_dir' => $protocol_content.$server_host._PS_IMG_,
-		'img_cat_dir' => $protocol_content.$server_host._THEME_CAT_DIR_,
-		'img_lang_dir' => $protocol_content.$server_host._THEME_LANG_DIR_,
-		'img_prod_dir' => $protocol_content.$server_host._THEME_PROD_DIR_,
-		'img_manu_dir' => $protocol_content.$server_host._THEME_MANU_DIR_,
-		'img_sup_dir' => $protocol_content.$server_host._THEME_SUP_DIR_,
-		'img_ship_dir' => $protocol_content.$server_host._THEME_SHIP_DIR_,
-		'img_col_dir' => $protocol_content.$server_host._THEME_COL_DIR_,
-		'img_dir' => $protocol_content.$server_host._THEME_IMG_DIR_,
-		'css_dir' => $protocol_content.$server_host._THEME_CSS_DIR_,
-		'js_dir' => $protocol_content.$server_host._THEME_JS_DIR_,
-		'tpl_dir' => _PS_THEME_DIR_,
-		'modules_dir' => _MODULE_DIR_,
-		'mail_dir' => _MAIL_DIR_,
-		'pic_dir' => $protocol_content.$server_host._THEME_PROD_PIC_DIR_,
-		'lang_iso' => $ps_language->iso_code,
-		'come_from' => Tools::getHttpHost(true, true).htmlentities($_SERVER['REQUEST_URI']),
-		'shop_name' => Configuration::get('PS_SHOP_NAME'),
-		'cart_qties' => intval($cart->nbProducts()),
-		'cart' => $cart,
-		'currencies' => Currency::getCurrencies(),
-		'id_currency_cookie' => intval($currency->id),
-		'currency' => $currency,
-		'cookie' => $cookie,
-		'languages' => Language::getLanguages(),
-		'logged' => $cookie->isLogged(),
-		'page_name' => $page_name,
-		'customerName' => ($cookie->logged ? $cookie->customer_firstname.' '.$cookie->customer_lastname : false),
-		'priceDisplay' => $priceDisplay,
-		'roundMode' => intval(Configuration::get('PS_PRICE_ROUND_MODE')),
-		'use_taxes' => intval(Configuration::get('PS_TAX'))
-	));
-}
+  {
+    $img_ps_dir = $protocol_content.$server_host._PS_IMG_;
+    $theme_css  = $protocol_content.$server_host._THEME_CSS_DIR_;
+    $theme_img  = $protocol_content.$server_host._THEME_IMG_DIR_;
+    if(!$_SERVER['HTTPS']) {
+      $img_ps_dir = 'http://img1.lilibio.com/';
+      $theme_css  = 'http://theme.lilibio.com/'._THEME_NAME_.'/css/';
+      $theme_img  = 'http://theme.lilibio.com/'._THEME_NAME_.'/img/';
+    }
+    
+    define('_PS_BASE_URL_SSL_', $protocol_ssl.$server_host);
+    $smarty->assign(array(
+			  'base_dir' => _PS_BASE_URL_.__PS_BASE_URI__,
+			  'base_dir_ssl' => $protocol_link.$server_host.__PS_BASE_URI__,
+			  'content_dir' => $protocol_content.$server_host.__PS_BASE_URI__,
+			  'img_ps_dir' => $img_ps_dir,
+			  'img_cat_dir' => $protocol_content.$server_host._THEME_CAT_DIR_,
+			  'img_lang_dir' => $protocol_content.$server_host._THEME_LANG_DIR_,
+			  'img_prod_dir' => $protocol_content.$server_host._THEME_PROD_DIR_,
+			  'img_manu_dir' => $protocol_content.$server_host._THEME_MANU_DIR_,
+			  'img_sup_dir' => $protocol_content.$server_host._THEME_SUP_DIR_,
+			  'img_ship_dir' => $protocol_content.$server_host._THEME_SHIP_DIR_,
+			  'img_col_dir' => $protocol_content.$server_host._THEME_COL_DIR_,
+			  'img_dir' => $theme_img,
+			  'css_dir' => $theme_css,
+			  'js_dir' => $protocol_content.$server_host._THEME_JS_DIR_,
+			  'tpl_dir' => _PS_THEME_DIR_,
+			  'modules_dir' => _MODULE_DIR_,
+			  'mail_dir' => _MAIL_DIR_,
+			  'pic_dir' => $protocol_content.$server_host._THEME_PROD_PIC_DIR_,
+			  'lang_iso' => $ps_language->iso_code,
+			  'come_from' => Tools::getHttpHost(true, true).htmlentities($_SERVER['REQUEST_URI']),
+			  'shop_name' => Configuration::get('PS_SHOP_NAME'),
+			  'cart_qties' => intval($cart->nbProducts()),
+			  'cart' => $cart,
+			  'currencies' => Currency::getCurrencies(),
+			  'id_currency_cookie' => intval($currency->id),
+			  'currency' => $currency,
+			  'cookie' => $cookie,
+			  'languages' => Language::getLanguages(),
+			  'logged' => $cookie->isLogged(),
+			  'page_name' => $page_name,
+			  'customerName' => ($cookie->logged ? $cookie->customer_firstname.' '.$cookie->customer_lastname : false),
+			  'priceDisplay' => $priceDisplay,
+			  'roundMode' => intval(Configuration::get('PS_PRICE_ROUND_MODE')),
+			  'use_taxes' => intval(Configuration::get('PS_TAX'))
+			  ));
+  }
 else
-{
-	$protocol = ((isset($useSSL) AND $useSSL AND Configuration::get('PS_SSL_ENABLED')) OR (isset($_SERVER['HTTPS']) AND strtolower($_SERVER['HTTPS']) == 'on')) ? 'https://' : 'http://';
-	$smarty->assign(array(
-		'base_dir' => __PS_BASE_URI__,
-		'base_dir_ssl' => Tools::getHttpHost(true, true).__PS_BASE_URI__,
-		'content_dir' => __PS_BASE_URI__,
-		/* If the current page need SSL encryption and the shop allow it, then active it */
-		'protocol' => $protocol,
-		'img_ps_dir' => _PS_IMG_,
-		'img_cat_dir' => _THEME_CAT_DIR_,
-		'img_lang_dir' => _THEME_LANG_DIR_,
-		'img_prod_dir' => _THEME_PROD_DIR_,
-		'img_manu_dir' => _THEME_MANU_DIR_,
-		'img_sup_dir' => _THEME_SUP_DIR_,
-		'img_ship_dir' => _THEME_SHIP_DIR_,
-		'img_col_dir' => _THEME_COL_DIR_,
-		'img_dir' => _THEME_IMG_DIR_,
-		'css_dir' => _THEME_CSS_DIR_,
-		'js_dir' => _THEME_JS_DIR_,
-		'tpl_dir' => _PS_THEME_DIR_,
-		'modules_dir' => _MODULE_DIR_,
-		'mail_dir' => _MAIL_DIR_,
-		'pic_dir' => _THEME_PROD_PIC_DIR_,
-		'lang_iso' => $ps_language->iso_code,
-		'come_from' => Tools::getHttpHost(true, true).htmlentities($_SERVER['REQUEST_URI']),
-		'shop_name' => Configuration::get('PS_SHOP_NAME'),
-		'cart_qties' => intval($cart->nbProducts()),
-		'cart' => $cart,
-		'currencies' => Currency::getCurrencies(),
-		'id_currency_cookie' => intval($currency->id),
-		'currency' => $currency,
-		'cookie' => $cookie,
-		'languages' => Language::getLanguages(),
-		'logged' => $cookie->isLogged(),
-		'priceDisplay' => $priceDisplay,
-		'page_name' => $page_name,
-		'customerName' => ($cookie->logged ? $cookie->customer_firstname.' '.$cookie->customer_lastname : false),
-		'roundMode' => intval(Configuration::get('PS_PRICE_ROUND_MODE')),
-		'use_taxes' => intval(Configuration::get('PS_TAX'))));
-}
+  {
+    $protocol = ((isset($useSSL) AND $useSSL AND Configuration::get('PS_SSL_ENABLED')) OR (isset($_SERVER['HTTPS']) AND strtolower($_SERVER['HTTPS']) == 'on')) ? 'https://' : 'http://';
+    $smarty->assign(array(
+			  'base_dir' => __PS_BASE_URI__,
+			  'base_dir_ssl' => Tools::getHttpHost(true, true).__PS_BASE_URI__,
+			  'content_dir' => __PS_BASE_URI__,
+			  /* If the current page need SSL encryption and the shop allow it, then active it */
+			  'protocol' => $protocol,
+			  'img_ps_dir' => _PS_IMG_,
+			  'img_cat_dir' => _THEME_CAT_DIR_,
+			  'img_lang_dir' => _THEME_LANG_DIR_,
+			  'img_prod_dir' => _THEME_PROD_DIR_,
+			  'img_manu_dir' => _THEME_MANU_DIR_,
+			  'img_sup_dir' => _THEME_SUP_DIR_,
+			  'img_ship_dir' => _THEME_SHIP_DIR_,
+			  'img_col_dir' => _THEME_COL_DIR_,
+			  'img_dir' => _THEME_IMG_DIR_,
+			  'css_dir' => _THEME_CSS_DIR_,
+			  'js_dir' => _THEME_JS_DIR_,
+			  'tpl_dir' => _PS_THEME_DIR_,
+			  'modules_dir' => _MODULE_DIR_,
+			  'mail_dir' => _MAIL_DIR_,
+			  'pic_dir' => _THEME_PROD_PIC_DIR_,
+			  'lang_iso' => $ps_language->iso_code,
+			  'come_from' => Tools::getHttpHost(true, true).htmlentities($_SERVER['REQUEST_URI']),
+			  'shop_name' => Configuration::get('PS_SHOP_NAME'),
+			  'cart_qties' => intval($cart->nbProducts()),
+			  'cart' => $cart,
+			  'currencies' => Currency::getCurrencies(),
+			  'id_currency_cookie' => intval($currency->id),
+			  'currency' => $currency,
+			  'cookie' => $cookie,
+			  'languages' => Language::getLanguages(),
+			  'logged' => $cookie->isLogged(),
+			  'priceDisplay' => $priceDisplay,
+			  'page_name' => $page_name,
+			  'customerName' => ($cookie->logged ? $cookie->customer_firstname.' '.$cookie->customer_lastname : false),
+			  'roundMode' => intval(Configuration::get('PS_PRICE_ROUND_MODE')),
+			  'use_taxes' => intval(Configuration::get('PS_TAX'))));
+  }
 
 /* Display a maintenance page if shop is closed */
 if (isset($maintenance) AND (!isset($_SERVER['REMOTE_ADDR']) OR !in_array($_SERVER['REMOTE_ADDR'], explode(',', Configuration::get('PS_MAINTENANCE_IP')))))
-{
-	header('HTTP/1.1 503 temporarily overloaded');
-	$smarty->display(_PS_THEME_DIR_.'maintenance.tpl');
-	exit;
-}
+  {
+    header('HTTP/1.1 503 temporarily overloaded');
+    $smarty->display(_PS_THEME_DIR_.'maintenance.tpl');
+    exit;
+  }
