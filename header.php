@@ -23,5 +23,5 @@ if(isset($css_files) AND !empty($css_files)) $smarty->assign('css_files', $css_f
 if(isset($js_files) AND !empty($js_files)) $smarty->assign('js_files', $js_files);
 
 $smarty->display(_PS_THEME_DIR_.'header.tpl');
-
+flush();
 ?>

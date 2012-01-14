@@ -62,7 +62,8 @@ class BlockSearch extends Module
 	  global $smarty;
 	  if (Configuration::get('PS_SEARCH_AJAX')){
 	    $smarty->caching = true;
-	    $display = $this->display(__FILE__, 'header.tpl');
+	    $smartyCacheId = 'blocksearchheader|'.$_SERVER['HTTPS'];
+	    $display = $this->display(__FILE__, 'header.tpl', $smartyCacheId);
 	    $smarty->caching = false;
 	    return $display;
 	  }

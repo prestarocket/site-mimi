@@ -1,4 +1,4 @@
-{include file=$tpl_dir./errors.tpl}
+include file=$tpl_dir./errors.tpl}
 {if $errors|@count == 0}
 <script type="text/javascript">
 // <![CDATA[
@@ -286,9 +286,9 @@ var fieldRequired = '{l s='Please fill all required fields' js=1}';
 		</form>
 		<div id="sociallinks">
                          
-			<div id="fakebook" class="social">
+		<!-- 	<div id="fakebook" class="social">
 			        <fb:like href="" layout="box_count" width="150" show_faces="false" font=""></fb:like>
-			</div>
+			</div>  -->
 			 <div id="googleone" class="social">
 	                        <g:plusone size="tall"></g:plusone>
 	                 </div>
