@@ -1,4 +1,4 @@
-include file=$tpl_dir./errors.tpl}
+{include file=$tpl_dir./errors.tpl}
 {if $errors|@count == 0}
 <script type="text/javascript">
 // <![CDATA[
