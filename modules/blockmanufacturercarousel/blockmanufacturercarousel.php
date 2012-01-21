@@ -116,9 +116,8 @@ class BlockManufacturerCarousel extends Module
     {
 		global $smarty, $link;
 		$smarty->caching = true;
-		$cache = $smarty->cache_dir . '/blockmanufacturercarousel.cache';
 
-		if (! (file_exists($cache) && $smarty->cache_lifetime > (time() - filemtime($cache))) ) {
+		if (!$this->iscached(__FILE__, 'blockmanufacturercarousel.tpl')) {
                 $manufacturers = Manufacturer::getManufacturers(true);
                 $new_manufacturer = array();
 		if ($manufacturers)
