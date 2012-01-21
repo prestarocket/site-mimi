@@ -116,9 +116,9 @@ class BlockManufacturerCarousel extends Module
     {
 		global $smarty, $link;
 		$smarty->caching = true;
-		$smartyCacheId = 'blockmanufacturercarrousel|'.$_SERVER['HTTPS'];
+		$cache = $smarty->cache_dir . '/blockmanufacturercarousel.cache';
 
-		if (!$this->iscached(__FILE__, 'blockmanufacturercarousel.tpl', $smartyCacheId) ) { 
+		if (! (file_exists($cache) && $smarty->cache_lifetime > (time() - filemtime($cache))) ) {
                 $manufacturers = Manufacturer::getManufacturers(true);
                 $new_manufacturer = array();
 		if ($manufacturers)
@@ -131,8 +131,11 @@ class BlockManufacturerCarousel extends Module
                     'timeEffet' => $this->timeEffet,
                     'timeTrans' => $this->timeTrans
                     ));
+
+		// Create cache file
+		file_put_contents($cache, "this is cache");
 		}
-		$display = $this->display(__FILE__, 'blockmanufacturercarousel.tpl', $smartyCacheId);
+		$display = $this->display(__FILE__, 'blockmanufacturercarousel.tpl');
 		$smarty->caching = false;
  	 	return $display;
     }
