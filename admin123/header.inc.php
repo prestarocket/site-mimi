@@ -154,6 +154,7 @@ require_once(dirname(__FILE__).'/init.php');
 						}
 					}
 				?>
+                            <li> <a href="remove_cache.php"><img src="../img/t/AdminQuickAccesses.gif" style="width:16px;height:16px"></a> </li>
 			</ul>
 			<div id="main">
 				<ul id="submenu">
