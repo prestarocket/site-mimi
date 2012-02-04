@@ -131,8 +131,6 @@ class BlockManufacturerCarousel extends Module
                     'timeTrans' => $this->timeTrans
                     ));
 
-		// Create cache file
-		file_put_contents($cache, "this is cache");
 		}
 		$display = $this->display(__FILE__, 'blockmanufacturercarousel.tpl');
 		$smarty->caching = false;
