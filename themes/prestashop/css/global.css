@@ -19,7 +19,7 @@ body {
 	font-family: Verdana, Arial, Helvetica, Sans-Serif;
 	color:  #5A4B35;
 	text-align: center;
-	background: #F0F0F0;
+	background: #F0F0F0 repeat-x url("../img/back_wood.jpg") bottom;
 
 }
 
@@ -905,8 +905,8 @@ ul#header_links {
 #footer {
 /*	border-top: 1px solid #779b5d;*/
 	padding: 0.5em 0;
-	clear: both
-
+	clear: both;
+	background: repeat-x url("../img/back_wood.jpg");
 }
 #footer .block_various_links { list-style: none }
 #footer .block_various_links li a { text-decoration: none }
